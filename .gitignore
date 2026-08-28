@@ -1,0 +1,78 @@
+# ==========================================
+# FloMind_Elite — Git Ignore Policy
+# Security & Safety Filters
+# ==========================================
+
+# 1. Environment Variables & Secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.token
+*.secret
+
+# 2. Local Databases & SQLite
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+flowmind.db
+backend/flowmind.db
+
+# 3. Dynamic Uploads & Temporary Storage
+backend/uploads/*
+!backend/uploads/.gitkeep
+uploads/*
+!uploads/.gitkeep
+tmp/
+temp/
+
+# 4. Gemini CLI / Antigravity / AGY Local Auth & Binaries
+.gemini/
+.agy/
+mcp/
+agy.exe
+agy.EXE
+gemini.cmd
+gemini.CMD
+
+# 5. Python Runtime & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# 6. Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# 7. Node & Frontend Build Artifacts
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.vite/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 8. IDE & Operating System Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini

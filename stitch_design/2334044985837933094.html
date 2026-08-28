@@ -1,0 +1,111 @@
+# Implementasi Frontend UI FlowMind (Epic 6 & User Journey End-to-End)
+
+Dokumen ini merangkum rencana implementasi antarmuka web (Frontend) untuk **FlowMind MVP** yang mengintegrasikan seluruh backend logic engine yang telah dibangun. Tampilan akan dibuat modern, premium (dark mode sleek dengan aksen indigo/cyan), dan interaktif.
+
+---
+
+## User Review Required
+
+> [!IMPORTANT]
+> Frontend akan dibangun menggunakan **React + Vite** (Single Page Application super cepat dan responsif) dengan **Vanilla CSS Design System** modern (Glassmorphism, custom typography Inter, CSS variables, dan micro-animations). 
+
+Visualisasi graf proses (DFG) akan menggunakan library graf interaktif / SVG canvas yang mendukung:
+- Zoom in / Zoom out & Pan
+- Node highlighting & filtering
+- Visualisasi ketebalan edge & heatmap warna berdasarkan durasi bottleneck
+- Klik pada node/edge untuk membuka side-panel detail transisi
+
+---
+
+## Fitur & Halaman yang Akan Dibangun (Sesuai PDF Halaman 2–18)
+
+```
+FlowMind Frontend Architecture
+├── Navigation & Project Header (Project State Indicator: EMPTY -> READY -> ANALYZED -> INSIGHTS_AVAILABLE -> SCENARIO_AVAILABLE)
+├── 1. Project & Dataset Ingestion Flow
+│   ├── Create Project Modal / Form
+│   ├── Drag & Drop File Upload (CSV / XLSX)
+│   ├── Interactive Column Mapping (case_id, activity, timestamp, actor, department)
+│   └── Data Preview & Quality Score Card (Score %, Missing %, Duplicate %)
+├── 2. Analysis Polling & Progress Bar (0–100% Ingestion -> Reconstruction -> Discovery -> Metrics -> Findings -> Finalization)
+├── 3. Project Dashboard Pages (Tab Navigation)
+│   ├── [Overview Tab]: KPI Summary (Cases, Cycle Time, SLA, Rework), mini-graph & Top Findings
+│   ├── [Process Map Tab]: Interactive DFG Canvas (Nodes, Edges, Bottleneck heatmap, side drawer info)
+│   ├── [Metrics Tab]: Case Metrics (P50/P75/P90/P95, Mean, Min, Max), Process Metrics, Transition ranking table
+│   ├── [Variants Tab]: Variant Explorer (Rank, Path string, Case Volume, Share %, Median Cycle Time)
+│   ├── [Findings Tab]: Structured Cards (Severity badges, Evidence breakdown, Recommendations, "Simulate This" button)
+│   ├── [Scenarios Tab]: What-If Builder (Reduce Duration / Remove Activity, parameter slider, Delta comparison view)
+│   └── [AI Analyst Tab]: Context-aware interface dengan Suggested Prompt Chips & Structured Evidence response
+```
+
+---
+
+## Proposed Changes
+
+### 1. Inisialisasi Vite + React App
+#### [NEW] `frontend/`
+- Membuat proyek React Vite di direktori `frontend/`.
+- Dependensi: `lucide-react` (icon modern), `canvas-confetti` (efek penyelesaian), routing & API client.
+
+### 2. Styling & Design System
+#### [NEW] `frontend/src/index.css`
+- Design tokens: Dark theme palette (slate-900, slate-800, vibrant indigo/cyan accents, crimson for critical severity, emerald for SLA compliance).
+- Typography Inter / Outfit, modern glassmorphism utility classes, smooth transitions, dan custom scrollbars.
+
+### 3. API Client Layer
+#### [NEW] `frontend/src/api/client.js`
+- Menghubungkan seluruh endpoint API backend (`http://localhost:8000/api/v1`):
+  - Projects CRUD & state management
+  - Dataset upload, column mapping, preview, confirmation
+  - Analysis trigger & status polling
+  - Process graph, metrics, variants, findings
+  - Scenario validation & simulation
+  - AI Analyst ask endpoint
+
+### 4. Interactive Components & Views
+#### [NEW] `frontend/src/components/Navbar.jsx`
+- Header dengan project selector, state badge (`EMPTY`, `READY`, `ANALYZED`, dll), dan tab navigasi.
+
+#### [NEW] `frontend/src/components/DatasetImportModal.jsx`
+- Multi-step modal: Upload CSV $\rightarrow$ Mapping Kolom $\rightarrow$ Data Quality Preview $\rightarrow$ Run Analysis.
+
+#### [NEW] `frontend/src/components/ProcessGraphCanvas.jsx`
+- Komponen canvas graf interaktif (DFG) dengan auto-layout visual, node frekuensi, edge warna heatmap bottleneck, dan zoom/pan controls.
+
+#### [NEW] `frontend/src/components/OverviewView.jsx`
+- Ringkasan eksekutif menjawab 3 pertanyaan PRD: *Seberapa besar proses? Seberapa baik berjalan? Di mana masalahnya?*
+
+#### [NEW] `frontend/src/components/MetricsView.jsx`
+- Visualisasi persentil cycle time (P50, P75, P90, P95), SLA breakdown, dan transition table.
+
+#### [NEW] `frontend/src/components/VariantsView.jsx`
+- Tabel Variant Explorer lengkap dengan visual step badges dan perbandingan cycle time.
+
+#### [NEW] `frontend/src/components/FindingsView.jsx`
+- Kartu temuan terstruktur dengan severity rating (CRITICAL, HIGH, MEDIUM), evidence list, dan tombol *"Simulate in Scenario"*.
+
+#### [NEW] `frontend/src/components/ScenarioView.jsx`
+- What-If Scenario Builder: Form konfigurasi perubahan parameter dan komparasi visual Baseline vs Scenario (Cycle time delta % dan SLA improvement).
+
+#### [NEW] `frontend/src/components/AIAnalystView.jsx`
+- Panel AI Analyst dengan Suggested Questions (*"Why is this process slow?"*, *"What explains the SLA violations?"*) dan formatted output dengan Evidence card.
+
+---
+
+## Verification Plan
+
+### Automated / Manual Verification:
+1. Menjalankan backend server:
+   ```bash
+   uvicorn backend.main:app --port 8000
+   ```
+2. Menjalankan frontend development server:
+   ```bash
+   cd frontend && npm run dev
+   ```
+3. Menguji alur lengkap di browser:
+   - Buat Project baru.
+   - Upload dataset `flowmind_customer_complaint_complex_10000.csv`.
+   - Lakukan column mapping dan periksa Data Quality Score (82%).
+   - Klik Run Analysis dan pantau progress bar (0% $\rightarrow$ 100%).
+   - Eksplorasi graf DFG, metrik P50/P90, 152 varian, 3 temuan bottleneck, simulasi skenario, dan chat dengan AI Analyst.

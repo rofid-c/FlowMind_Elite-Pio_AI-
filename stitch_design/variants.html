@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FlowMind - Variants Explorer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Outfit:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "on-primary": "#1000a9",
+                      "on-tertiary-fixed": "#40000d",
+                      "tertiary": "#ffb2b7",
+                      "surface-tint": "#c0c1ff",
+                      "outline": "#908fa0",
+                      "on-secondary": "#003640",
+                      "surface-slate": "#1E293B",
+                      "surface-container": "#171f33",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "primary-container": "#8083ff",
+                      "surface-container-high": "#222a3d",
+                      "surface-container-lowest": "#060e20",
+                      "inverse-on-surface": "#283044",
+                      "surface-dim": "#0b1326",
+                      "on-background": "#dae2fd",
+                      "on-surface": "#dae2fd",
+                      "inverse-surface": "#dae2fd",
+                      "on-surface-variant": "#c7c4d7",
+                      "secondary-container": "#03b5d3",
+                      "on-primary-container": "#0d0096",
+                      "surface": "#0b1326",
+                      "on-primary-fixed": "#07006c",
+                      "secondary-fixed": "#acedff",
+                      "tertiary-container": "#ff516a",
+                      "surface-variant": "#2d3449",
+                      "on-tertiary-container": "#5b0017",
+                      "border-glass": "rgba(255, 255, 255, 0.1)",
+                      "surface-bright": "#31394d",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "surface-container-low": "#131b2e",
+                      "compliance-emerald": "#10B981",
+                      "background": "#0b1326",
+                      "on-tertiary": "#67001b",
+                      "tertiary-fixed": "#ffdadb",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "secondary": "#4cd7f6",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "primary": "#c0c1ff",
+                      "inverse-primary": "#494bd6",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#464554",
+                      "on-secondary-container": "#00424e",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#ffb2b7",
+                      "on-secondary-fixed": "#001f26",
+                      "surface-container-highest": "#2d3449",
+                      "bg-blur": "rgba(15, 23, 42, 0.8)",
+                      "primary-fixed": "#e1e0ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "stack-lg": "24px",
+                      "topbar-height": "64px",
+                      "stack-sm": "8px",
+                      "sidebar-width": "280px",
+                      "container-padding": "32px"
+              },
+              "fontFamily": {
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Outfit"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Outfit"
+                      ],
+                      "headline-lg": [
+                              "Outfit"
+                      ],
+                      "numeric-mono": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Outfit"
+                      ]
+              },
+              "fontSize": {
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "numeric-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-panel:hover {
+            border-color: rgba(192, 193, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(192, 193, 255, 0.05);
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background -->
+<div class="fixed inset-0 z-[-1] pointer-events-none opacity-40">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-container/20 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-secondary-container/10 blur-[100px]"></div>
+</div>
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full p-gutter bg-surface-container/80 backdrop-blur-xl fixed left-0 top-0 h-screen w-sidebar-width border-r border-glass shadow-2xl z-50">
+<div class="flex items-center gap-4 mb-stack-lg px-2">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-on-primary-fixed shadow-lg">
+<span class="material-symbols-outlined font-bold" data-icon="troubleshoot">troubleshoot</span>
+</div>
+<div>
+<h1 class="font-display-lg text-headline-md font-bold text-primary tracking-tight leading-none">FlowMind</h1>
+<p class="font-body-sm text-label-caps text-on-surface-variant uppercase tracking-widest mt-1">Process Intelligence</p>
+</div>
+</div>
+<button class="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container font-headline-sm text-body-sm font-bold shadow-md hover:shadow-lg transition-all scale-95 active:scale-90 transition-transform mb-stack-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            New Analysis
+        </button>
+<ul class="flex-1 space-y-2 mt-4 font-body-md text-body-md">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="account_tree">account_tree</span>
+                    Process Map
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="analytics">analytics</span>
+                    Metrics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="alt_route" data-weight="fill">alt_route</span>
+                    Variants
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="troubleshoot">troubleshoot</span>
+                    Findings
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="settings_suggest">settings_suggest</span>
+                    Scenarios
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 transition-colors group" href="#">
+<span class="material-symbols-outlined text-secondary group-hover:text-secondary-fixed transition-colors" data-icon="psychology">psychology</span>
+                    AI Analyst
+                </a>
+</li>
+</ul>
+<div class="mt-auto pt-stack-md border-t border-glass">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-bright/50 transition-colors cursor-pointer">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-glass object-cover" data-alt="A macro photograph of a polished obsidian sphere reflecting a neon blue and purple server room, cinematic lighting, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl2LaHUirCVv7DEwSu6wt9T1tvrCUwhB11fwPLaxT7P7UO8HKyrhv8AjewDPGa0cxg994bIQfEqss0HGrvM7a7psPbr8bLYo7mGC9qoTDCEQ3YrQAmuHFpaqZKnRYlc0DboGw8q8HBYrdY0gC1r32HPOyLKrDGslzxmk1OEYbtBJKV4sZlpEGntA9O4XMsSSF1dBQupknnnFRAjTQ7NQzuKgbh_yFjDTqG493guOg4-gBmD2gQSboE"/>
+<div class="flex flex-col">
+<span class="text-body-sm font-semibold text-on-surface">Admin User</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Data Scientist</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="hidden md:flex justify-between items-center px-container-padding bg-surface/80 backdrop-blur-xl fixed top-0 right-0 w-[calc(100%-280px)] h-topbar-height border-b border-glass shadow-sm z-40">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-sm font-bold text-on-surface tracking-wide">Supply Chain Audit</span>
+<span class="px-2 py-1 rounded bg-compliance-emerald/20 text-compliance-emerald font-label-caps text-[10px] border border-compliance-emerald/30 uppercase tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-compliance-emerald animate-pulse"></span>
+                Analyzed
+            </span>
+</div>
+<div class="flex items-center gap-stack-lg">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-surface-dim border border-glass rounded-full py-1.5 pl-9 pr-4 text-body-sm text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/50 w-64 placeholder:text-on-surface-variant/50 transition-all" placeholder="Search variants or metrics..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant/30 rounded-full hover:text-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant/30 rounded-full hover:text-secondary transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-6 w-px bg-glass"></div>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 rounded-lg border border-glass text-on-surface hover:bg-surface-bright/50 font-body-sm transition-colors text-body-sm font-medium">Share</button>
+<button class="px-4 py-1.5 rounded-lg bg-surface-bright text-on-surface hover:bg-surface-container-highest font-body-sm transition-colors border border-glass text-body-sm font-medium">Export</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="md:ml-sidebar-width md:mt-topbar-height p-gutter md:p-container-padding pb-32">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-stack-lg gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-2">Variant Explorer</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Analyzing 152 process variants across 12,450 total cases.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="glass-panel px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="text-on-surface-variant font-label-caps text-label-caps">Coverage</span>
+<span class="font-numeric-mono text-numeric-mono text-primary font-bold">84%</span>
+</div>
+<div class="glass-panel px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="text-on-surface-variant font-label-caps text-label-caps">Avg Duration</span>
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-bold">4.2d</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Variants List -->
+<div class="lg:col-span-8 flex flex-col gap-4">
+<!-- Table Header -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col shadow-lg shadow-2xl backdrop-blur-xl border-primary/20 shadow-[0_0_20px_rgba(192,193,255,0.05)]">
+<div class="grid grid-cols-12 gap-4 px-6 py-4 border-b border-glass bg-surface-container-low/50 items-center">
+<div class="col-span-1 font-label-caps text-label-caps text-on-surface-variant">Rank</div>
+<div class="col-span-6 font-label-caps text-label-caps text-on-surface-variant">Path Visual</div>
+<div class="col-span-2 font-label-caps text-label-caps text-on-surface-variant text-right">Volume</div>
+<div class="col-span-3 font-label-caps text-label-caps text-on-surface-variant text-right">Cycle Time</div>
+</div>
+<!-- Row 1 (Active) -->
+<div class="grid grid-cols-12 gap-4 px-6 py-5 border-b border-primary/20 bg-primary-container/5 items-center cursor-pointer transition-colors relative bg-primary-container/10">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r"></div>
+<div class="col-span-1 font-numeric-mono text-numeric-mono font-bold text-primary">#1</div>
+<div class="col-span-6 flex flex-wrap items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">PO Created</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Approved</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Goods Rcvd</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Inv Cleared</span>
+</div>
+<div class="col-span-2 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">1,420</span>
+<span class="font-numeric-mono text-[11px] text-primary tracking-tighter">11.4% share</span>
+</div>
+<div class="col-span-3 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">2.1d</span>
+<span class="font-label-caps text-[10px] text-compliance-emerald mt-1 bg-compliance-emerald/10 px-1.5 py-0.5 rounded border border-compliance-emerald/20 rounded-full px-2 border-compliance-emerald/40">Optimal</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 gap-4 px-6 py-5 border-b border-glass hover:bg-surface-bright/30 items-center cursor-pointer transition-colors">
+<div class="col-span-1 font-numeric-mono text-numeric-mono text-on-surface-variant">#2</div>
+<div class="col-span-6 flex flex-wrap items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">PO Created</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Approved</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded border border-tertiary/40 bg-tertiary/10 font-body-sm text-xs text-tertiary whitespace-nowrap font-medium flex items-center gap-1 rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+                                Price Change
+                            </span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Goods Rcvd</span>
+</div>
+<div class="col-span-2 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">890</span>
+<span class="font-numeric-mono text-[11px] text-on-surface-variant tracking-tighter">7.1% share</span>
+</div>
+<div class="col-span-3 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">5.4d</span>
+<span class="font-label-caps text-[10px] text-tertiary mt-1 bg-tertiary/10 px-1.5 py-0.5 rounded border border-tertiary/20 rounded-full px-2 border-compliance-emerald/40">Deviation</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-12 gap-4 px-6 py-5 border-b border-glass hover:bg-surface-bright/30 items-center cursor-pointer transition-colors">
+<div class="col-span-1 font-numeric-mono text-numeric-mono text-on-surface-variant">#3</div>
+<div class="col-span-6 flex flex-wrap items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Req Created</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">PO Created</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Approved</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Inv Cleared</span>
+</div>
+<div class="col-span-2 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">620</span>
+<span class="font-numeric-mono text-[11px] text-on-surface-variant tracking-tighter">4.9% share</span>
+</div>
+<div class="col-span-3 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">3.8d</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-12 gap-4 px-6 py-5 hover:bg-surface-bright/30 items-center cursor-pointer transition-colors">
+<div class="col-span-1 font-numeric-mono text-numeric-mono text-on-surface-variant">#4</div>
+<div class="col-span-6 flex flex-wrap items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">PO Created</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded border border-tertiary/40 bg-tertiary/10 font-body-sm text-xs text-tertiary whitespace-nowrap font-medium flex items-center gap-1 rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">
+<span class="material-symbols-outlined text-[14px]" data-icon="loop">loop</span>
+                                Rework Approval
+                            </span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Approved</span>
+<span class="material-symbols-outlined text-outline text-xs" data-icon="arrow_right_alt">arrow_right_alt</span>
+<span class="px-2 py-1 rounded bg-surface-bright border border-glass font-body-sm text-xs text-on-surface whitespace-nowrap font-medium rounded-full px-3 py-0.5 bg-gradient-to-b from-surface-bright to-surface-dim text-[11px] tracking-tight border-primary/10">Inv Cleared</span>
+</div>
+<div class="col-span-2 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-on-surface font-semibold tracking-tighter">415</span>
+<span class="font-numeric-mono text-[11px] text-on-surface-variant tracking-tighter">3.3% share</span>
+</div>
+<div class="col-span-3 flex flex-col items-end">
+<span class="font-numeric-mono text-numeric-mono text-tertiary font-semibold tracking-tighter">8.2d</span>
+<span class="font-label-caps text-[10px] text-tertiary mt-1 bg-tertiary/10 px-1.5 py-0.5 rounded border border-tertiary/20 rounded-full px-2 border-compliance-emerald/40">Bottleneck</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-4">
+<button class="px-4 py-2 rounded-lg border border-glass text-on-surface-variant hover:text-on-surface hover:bg-surface-bright/50 font-body-sm transition-colors text-body-sm flex items-center gap-2">
+                        Load More Variants
+                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Side Panel (Selected Variant Detail) -->
+<div class="lg:col-span-4 glass-panel rounded-xl border border-glass p-6 flex flex-col shadow-2xl sticky top-24 bg-surface-container-low/50 backdrop-blur-[24px] border-primary/30 shadow-[0_0_30px_rgba(192,193,255,0.08)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-numeric-mono text-xs font-bold border border-primary/30">Variant #1</span>
+<span class="font-label-caps text-label-caps text-compliance-emerald bg-compliance-emerald/10 border border-compliance-emerald/20 px-1.5 py-0.5 rounded uppercase">Happy Path</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Standard Procurement</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-dim border border-glass p-3 rounded-lg shadow-sm">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Volume</span>
+<span class="font-numeric-mono text-lg text-on-surface font-bold">1,420 <span class="text-xs text-on-surface-variant font-normal">cases</span></span>
+</div>
+<div class="bg-surface-dim border border-glass p-3 rounded-lg shadow-sm">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-1">Avg Duration</span>
+<span class="font-numeric-mono text-lg text-on-surface font-bold">2.1 <span class="text-xs text-on-surface-variant font-normal">days</span></span>
+</div>
+</div>
+<div class="mb-4">
+<span class="block font-label-caps text-label-caps text-on-surface-variant mb-3 border-b border-glass pb-2">Process Flow</span>
+<!-- Minimal vertical DFG representation -->
+<div class="relative pl-4 space-y-6 before:absolute before:inset-y-0 before:left-5 before:w-px my-4 before:bg-outline/30">
+<div class="relative flex items-start gap-4 group">
+<div class="w-3 h-3 rounded-full bg-primary ring-4 ring-surface-slate relative z-10 mt-1.5 shadow-[0_0_8px_rgba(192,193,255,0.6)] shadow-[0_0_12px_rgba(192,193,255,0.8)] ring-primary/20"></div>
+<div class="flex-1 bg-surface-dim border border-glass rounded p-2.5 group-hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">PO Created</span>
+</div>
+<div class="flex justify-between text-[11px] font-numeric-mono text-on-surface-variant">
+<span>100% execution</span>
+<span>0.0d</span>
+</div>
+</div>
+</div>
+<div class="relative flex items-start gap-4 group">
+<div class="w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-slate relative z-10 mt-1.5 bg-surface-bright"></div>
+<div class="flex-1 bg-surface-dim border border-glass rounded p-2.5 group-hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Approved</span>
+</div>
+<div class="flex justify-between text-[11px] font-numeric-mono text-on-surface-variant">
+<span>100% execution</span>
+<span class="text-secondary">+0.8d</span>
+</div>
+</div>
+</div>
+<div class="relative flex items-start gap-4 group">
+<div class="w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-slate relative z-10 mt-1.5 bg-surface-bright"></div>
+<div class="flex-1 bg-surface-dim border border-glass rounded p-2.5 group-hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Goods Rcvd</span>
+</div>
+<div class="flex justify-between text-[11px] font-numeric-mono text-on-surface-variant">
+<span>100% execution</span>
+<span class="text-secondary">+1.1d</span>
+</div>
+</div>
+</div>
+<div class="relative flex items-start gap-4 group">
+<div class="w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-slate relative z-10 mt-1.5 bg-surface-bright"></div>
+<div class="flex-1 bg-surface-dim border border-glass rounded p-2.5 group-hover:border-primary/50 transition-colors shadow-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Inv Cleared</span>
+</div>
+<div class="flex justify-between text-[11px] font-numeric-mono text-on-surface-variant">
+<span>100% execution</span>
+<span class="text-secondary">+0.2d</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-glass">
+<button class="w-full py-2 rounded-lg bg-surface-bright text-on-surface border border-glass hover:bg-surface-container-highest transition-colors font-body-sm text-body-sm font-medium flex justify-center items-center gap-2">
+                        View Detailed DFG
+                        <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="hidden md:flex justify-between items-center px-container-padding bg-surface-container-lowest/50 backdrop-blur-md fixed bottom-0 right-0 w-[calc(100%-280px)] py-4 border-t border-glass z-40">
+<div class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-2">
+            © 2024 FlowMind AI. System Status: 
+            <span class="text-compliance-emerald flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-compliance-emerald animate-pulse"></span>
+                Operational
+            </span>
+</div>
+<div class="flex gap-4 font-body-sm text-body-sm">
+<a class="text-on-surface-variant hover:text-on-surface underline-offset-4 hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-on-surface underline-offset-4 hover:underline transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-on-surface underline-offset-4 hover:underline transition-all" href="#">Support</a>
+</div>
+</footer>
+</body></html>

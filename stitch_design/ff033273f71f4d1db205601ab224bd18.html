@@ -1,0 +1,311 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI Analyst - FlowMind Process Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c7c4d7",
+                        "on-tertiary": "#003824",
+                        "on-secondary-fixed": "#001f26",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#171f33",
+                        "primary-container": "#8083ff",
+                        "surface-container-lowest": "#060e20",
+                        "accent-cyan": "#06B6D4",
+                        "surface": "#0b1326",
+                        "bg-slate-900": "#0F172A",
+                        "outline": "#908fa0",
+                        "bg-slate-800": "#1E293B",
+                        "surface-variant": "#2d3449",
+                        "glass-stroke": "rgba(255, 255, 255, 0.08)",
+                        "secondary-fixed": "#acedff",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#00424e",
+                        "critical-crimson": "#EF4444",
+                        "on-surface": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#dae2fd",
+                        "on-secondary": "#003640",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "background": "#0b1326",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-on-surface": "#283044",
+                        "primary-fixed": "#e1e0ff",
+                        "on-primary-fixed": "#07006c",
+                        "inverse-primary": "#494bd6",
+                        "secondary": "#4cd7f6",
+                        "surface-container-low": "#131b2e",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-primary": "#1000a9",
+                        "surface-tint": "#c0c1ff",
+                        "success-emerald": "#10B981",
+                        "on-tertiary-fixed": "#002113",
+                        "error": "#ffb4ab",
+                        "on-background": "#dae2fd",
+                        "accent-indigo": "#6366F1",
+                        "tertiary-container": "#00885d",
+                        "secondary-container": "#03b5d3",
+                        "on-primary-container": "#0d0096",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#31394d",
+                        "outline-variant": "#464554",
+                        "primary": "#c0c1ff",
+                        "on-tertiary-container": "#000703",
+                        "tertiary": "#4edea3",
+                        "surface-container-high": "#222a3d",
+                        "on-secondary-fixed-variant": "#004e5c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "sidebar-width": "260px",
+                        "margin-desktop": "40px",
+                        "container-max": "1440px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "mono-data": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Outfit"],
+                        "headline-sm": ["Outfit"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #0b1326; color: #dae2fd; }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #c0c1ff 0%, #4cd7f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-hidden selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="bg-surface/80 backdrop-blur-xl dark:bg-surface/80 text-primary dark:text-primary font-headline-sm text-headline-sm fixed top-0 right-0 w-[calc(100%-260px)] z-40 border-b border-glass-stroke flex justify-between items-center px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-extrabold text-on-surface dark:text-on-surface">Supply Chain Audit</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-all hover:opacity-80" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:opacity-80" href="#">Inventory</a>
+<a class="text-on-surface-variant hover:text-primary transition-all hover:opacity-80" href="#">Logistics</a>
+</nav>
+<div class="flex items-center gap-4 border-l border-glass-stroke pl-6">
+<button class="text-on-surface-variant hover:text-primary transition-all hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-all hover:opacity-80">
+<span class="material-symbols-outlined" data-icon="cloud_done">cloud_done</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg border border-glass-stroke text-body-sm font-medium hover:bg-surface-variant transition-colors">Ready</button>
+<button class="px-4 py-1.5 rounded-lg bg-accent-indigo text-white text-body-sm font-medium hover:bg-accent-indigo/90 transition-colors">Share</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-glass-stroke object-cover" data-alt="A highly professional macro portrait of a corporate executive user in a high-tech sleek office environment. Dramatic cinematic lighting, deep shadows, subtle neon rim light in cyan and indigo. Premium 8k resolution photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9MQGPxbPjhYQ0H5x3tAlqo6lSXM8ILATlrSsAJYf7p3X_vA_MYwLi-BDtEigkoK7ORIzbr3hjA9jywC1vUBMRK2exEzzhue-BNk13XrlRse3EpgERn92Xa-wNUrY8fZPVXsLbC8tWjkZP4Nu_Pm-2-xGX2am3s0RrQs_7XyyMapZzaqEKVLq5q7nokmToQH6eMG0l_ZpfUM_nxVN2Ipg1UUoyW1xcdtBk5oBppZkClJx42V6vydHQ">
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-body-md text-body-md fixed h-full w-[260px] left-0 top-0 border-r border-glass-stroke shadow-sm flex flex-col py-stack-md z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-indigo to-accent-cyan flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">timeline</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary leading-tight">FlowMind</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">Process Intelligence</div>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full py-2.5 rounded-lg bg-surface-variant border border-glass-stroke text-on-surface font-medium hover:bg-surface-variant/80 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                Upload Dataset
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar px-3 space-y-1">
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Overview
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+                Process Map
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Metrics
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="alt_route">alt_route</span>
+                Variants
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="troubleshoot">troubleshoot</span>
+                Findings
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+                Scenarios
+            </a>
+<a class="text-primary font-bold border-r-2 border-primary bg-surface-variant/30 flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                AI Analyst
+            </a>
+</div>
+<div class="px-3 mt-auto pt-4 border-t border-glass-stroke space-y-1">
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors flex items-center gap-3 px-3 py-2.5 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Help
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[260px] pt-16 h-screen flex relative">
+<!-- Chat Area -->
+<div class="flex-1 flex flex-col h-full relative z-10">
+<!-- Background pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#c0c1ff 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-margin-desktop flex flex-col gap-8 pb-32 z-10">
+<!-- Initial Welcome Message -->
+<div class="flex gap-4 max-w-4xl mx-auto w-full">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent-indigo to-accent-cyan flex-shrink-0 flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+<span class="material-symbols-outlined text-white" data-icon="psychology">psychology</span>
+</div>
+<div class="flex flex-col gap-2 w-full">
+<div class="text-body-sm text-on-surface-variant font-medium">FlowMind Analyst</div>
+<div class="glass-panel p-6 rounded-2xl rounded-tl-sm">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-surface">Hello. I've analyzed the <span class="ai-gradient-text font-bold">Supply Chain Audit</span> dataset.</h2>
+<p class="text-on-surface-variant text-body-lg leading-relaxed">
+                                I detected significant deviations in the European distribution routes compared to Q2 baselines. The average throughput time has increased by 14%, primarily bottlenecked at the Frankfurt sorting facility. How would you like to proceed?
+                            </p>
+</div>
+<!-- Suggested Question Chips -->
+<div class="flex flex-wrap gap-3 mt-2">
+<button class="px-4 py-2 rounded-full border border-glass-stroke bg-surface-container hover:bg-surface-variant hover:border-primary/50 transition-all text-body-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-accent-cyan" data-icon="troubleshoot">troubleshoot</span>
+                                Why is Frankfurt slow?
+                            </button>
+<button class="px-4 py-2 rounded-full border border-glass-stroke bg-surface-container hover:bg-surface-variant hover:border-primary/50 transition-all text-body-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="account_tree">account_tree</span>
+                                Show alternative routing variants
+                            </button>
+<button class="px-4 py-2 rounded-full border border-glass-stroke bg-surface-container hover:bg-surface-variant hover:border-primary/50 transition-all text-body-sm font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-accent-indigo" data-icon="analytics">analytics</span>
+                                Compare with Q2 baseline metrics
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="absolute bottom-0 left-0 right-0 p-margin-desktop pt-8 bg-gradient-to-t from-background via-background/90 to-transparent z-20">
+<div class="max-w-4xl mx-auto relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-accent-indigo to-accent-cyan rounded-2xl blur opacity-20 group-focus-within:opacity-40 transition duration-500"></div>
+<div class="relative flex items-center bg-surface-container rounded-2xl border border-glass-stroke p-2 shadow-lg">
+<button class="p-3 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-lg text-on-surface placeholder:text-outline-variant px-2" placeholder="Ask FlowMind to analyze data, find bottlenecks, or generate reports..." type="text">
+<button class="p-3 text-white bg-accent-indigo hover:bg-accent-indigo/90 rounded-xl transition-colors shadow-[0_0_10px_rgba(99,102,241,0.4)]">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+<div class="text-center mt-3 text-label-md text-on-surface-variant/50">
+                        AI Analyst can make mistakes. Verify critical insights using the manual Process Map tools.
+                    </div>
+</div>
+</div>
+</div>
+<!-- Right Side Panel (History/Context) -->
+<aside class="w-[320px] border-l border-glass-stroke bg-surface/50 backdrop-blur-xl flex flex-col z-20 relative hidden xl:flex">
+<div class="p-6 border-b border-glass-stroke flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Analysis Context</h3>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span></button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- Active Dataset Context -->
+<div>
+<h4 class="text-label-md text-on-surface-variant uppercase tracking-wider mb-3">Active Data Source</h4>
+<div class="glass-panel p-4 rounded-xl flex items-start gap-3">
+<div class="p-2 bg-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="dataset">dataset</span>
+</div>
+<div>
+<div class="text-body-sm font-medium text-on-surface">European_Logistics_FY23.csv</div>
+<div class="text-label-md text-on-surface-variant mt-1">1.2M rows • 45 variants</div>
+</div>
+</div>
+</div>
+<!-- Chat History -->
+<div>
+<h4 class="text-label-md text-on-surface-variant uppercase tracking-wider mb-3">Recent Sessions</h4>
+<div class="space-y-2">
+<button class="w-full text-left p-3 rounded-lg hover:bg-surface-variant/50 border border-transparent hover:border-glass-stroke transition-all group">
+<div class="text-body-sm font-medium text-on-surface group-hover:text-primary truncate">Identify procurement bottlenecks</div>
+<div class="text-label-md text-on-surface-variant mt-1">2 hours ago</div>
+</button>
+<button class="w-full text-left p-3 rounded-lg hover:bg-surface-variant/50 border border-transparent hover:border-glass-stroke transition-all group">
+<div class="text-body-sm font-medium text-on-surface group-hover:text-primary truncate">Vendor compliance audit report</div>
+<div class="text-label-md text-on-surface-variant mt-1">Yesterday</div>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer (Suppressed for immersive chat interface, minimal copyright remains) -->
+<footer class="fixed bottom-0 left-[260px] w-[calc(100%-260px)] px-margin-desktop h-10 flex justify-between items-center z-10 pointer-events-none opacity-50">
+<span class="font-label-md text-label-md text-on-surface-variant">© 2024 FlowMind AI. Analysis Engine v2.4</span>
+</footer>
+</body></html>

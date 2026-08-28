@@ -1,0 +1,304 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FlowMind - AI Analyst</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#c0c1ff",
+                      "primary-container": "#8083ff",
+                      "on-error": "#690005",
+                      "inverse-surface": "#dae2fd",
+                      "surface-slate": "#1E293B",
+                      "on-primary-container": "#0d0096",
+                      "surface-bright": "#31394d",
+                      "background": "#0b1326",
+                      "bg-blur": "rgba(15, 23, 42, 0.8)",
+                      "on-secondary-container": "#00424e",
+                      "surface-dim": "#0b1326",
+                      "surface-container-highest": "#2d3449",
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "surface-container-low": "#131b2e",
+                      "on-secondary-fixed": "#001f26",
+                      "on-tertiary-fixed": "#40000d",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#283044",
+                      "tertiary-container": "#ff516a",
+                      "surface": "#0b1326",
+                      "inverse-primary": "#494bd6",
+                      "surface-variant": "#2d3449",
+                      "border-glass": "rgba(255, 255, 255, 0.1)",
+                      "outline": "#908fa0",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "surface-container": "#171f33",
+                      "secondary": "#4cd7f6",
+                      "compliance-emerald": "#10B981",
+                      "on-tertiary-container": "#5b0017",
+                      "outline-variant": "#464554",
+                      "on-primary": "#1000a9",
+                      "on-surface-variant": "#c7c4d7",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#c0c1ff",
+                      "error": "#ffb4ab",
+                      "on-background": "#dae2fd",
+                      "tertiary": "#ffb2b7",
+                      "tertiary-fixed": "#ffdadb",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "secondary-fixed": "#acedff",
+                      "surface-container-high": "#222a3d",
+                      "on-secondary": "#003640",
+                      "on-primary-fixed": "#07006c",
+                      "primary-fixed": "#e1e0ff",
+                      "on-surface": "#dae2fd",
+                      "surface-container-lowest": "#060e20",
+                      "secondary-container": "#03b5d3",
+                      "on-tertiary": "#67001b",
+                      "tertiary-fixed-dim": "#ffb2b7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "container-padding": "32px",
+                      "stack-lg": "24px",
+                      "topbar-height": "64px",
+                      "sidebar-width": "280px",
+                      "stack-md": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Outfit"
+                      ],
+                      "headline-sm": [
+                              "Outfit"
+                      ],
+                      "headline-md": [
+                              "Outfit"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Outfit"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "numeric-mono": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "numeric-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full p-stack-md bg-surface-dim/80 backdrop-blur-xl fixed left-0 top-0 h-screen w-[280px] border-r border-border-glass shadow-none z-50">
+<div class="flex items-center gap-3 mb-8 px-4">
+<span class="material-symbols-outlined text-4xl text-primary" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">neurology</span>
+<div>
+<h1 class="font-display-lg text-headline-sm font-bold text-primary">FlowMind</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Process Intelligence</p>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary-container to-secondary py-3 rounded-lg font-headline-sm text-on-primary-container font-semibold mb-6 scale-95 active:scale-90 transition-transform">
+            Upload Dataset
+        </button>
+<div class="flex-1 overflow-y-auto">
+<ul class="space-y-2">
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">dashboard</span>Overview</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">account_tree</span>Process Map</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">analytics</span>Metrics</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">alt_route</span>Variants</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">troubleshoot</span>Findings</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">psychology</span>Scenarios</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-semibold" href="#"><span class="material-symbols-outlined">neurology</span>AI Analyst</a></li>
+</ul>
+</div>
+<div class="pt-4 border-t border-border-glass mt-auto">
+<ul class="space-y-2">
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">settings</span>Settings</a></li>
+<li class=""><a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined">help</span>Support</a></li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:ml-[280px] h-screen relative">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-container-padding w-full fixed top-0 right-0 left-0 md:left-[280px] h-topbar-height bg-bg-blur backdrop-blur-md border-b border-border-glass shadow-sm z-40 bg-surface-dim/90">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Supply Chain Audit</h2>
+<span class="bg-surface-container-high text-on-surface px-3 py-1 rounded-full font-label-caps text-label-caps border border-border-glass">ANALYZED</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-container-low border border-border-glass rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-secondary transition-all w-64">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm font-body-sm text-on-surface w-full placeholder-outline outline-none" placeholder="Search insights..." type="text">
+</div>
+<div class="flex items-center gap-3">
+
+<button class="bg-compliance-emerald/20 text-compliance-emerald border border-compliance-emerald/50 px-4 py-2 rounded-lg font-label-caps text-label-caps hover:bg-compliance-emerald/30 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span> Ready
+                    </button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex-1 flex mt-[64px] mb-[64px] overflow-hidden relative">
+<!-- Chat Area -->
+<div class="flex-1 flex flex-col h-full bg-surface-dim relative border-r border-border-glass">
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto p-container-padding space-y-6" id="chat-history">
+<!-- System Message / Intro -->
+<div class="flex justify-center mb-8">
+<div class="bg-surface-container-low border border-border-glass px-6 py-3 rounded-full flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">memory</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Session Initialized: European_Logistics_FY23</span>
+</div>
+</div>
+<!-- AI Message -->
+<div class="flex gap-4 max-w-3xl">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary-container to-secondary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(76,215,246,0.3)]">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: &quot;FILL&quot; 1;">neurology</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="bg-surface-slate/50 backdrop-blur-xl border border-border-glass p-6 rounded-xl rounded-tl-sm text-on-surface shadow-sm transition-all"><p class="font-label-caps text-label-caps text-primary mb-2 tracking-widest opacity-80">FlowMind AI</p><p class="leading-relaxed text-body-lg">Hello. I've analyzed the <span class="text-secondary font-semibold">Supply Chain Audit dataset</span>. I found several distinct bottlenecks in the fulfillment phase.</p><p class="mt-4 text-on-surface-variant font-body-md leading-relaxed">The most critical issue appears to be in the transit segment between <span class="text-on-surface font-medium">Warehouse B</span> and <span class="text-on-surface font-medium">distribution center C</span>.</p></div>
+<!-- Evidence Card inside chat -->
+<div class="bg-surface-container-low/50 backdrop-blur-md border border-border-glass p-5 rounded-xl mt-4 w-80 hover:border-secondary/50 hover:bg-surface-container-high transition-all cursor-pointer group shadow-sm"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-error text-lg">warning</span><span class="font-label-caps text-label-caps text-error tracking-widest">CRITICAL BOTTLENECK</span></div><span class="material-symbols-outlined text-outline-variant group-hover:text-secondary transition-all">open_in_new</span></div><h4 class="font-headline-sm text-headline-sm text-on-surface mb-2">Transit Delay (W-B to DC-C)</h4><div class="flex items-baseline gap-2 mb-6"><span class="font-numeric-mono text-4xl font-bold text-primary">+4.2</span><span class="font-body-sm text-body-sm text-on-surface-variant">days avg deviation</span></div><div class="space-y-2"><div class="flex justify-between text-[10px] font-label-caps text-outline-variant tracking-wider"><span class="">SEVERITY</span><span class="">85%</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden shadow-inner"><div class="bg-gradient-to-r from-error to-tertiary-container h-full w-[85%] rounded-full"></div></div></div></div>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-container-padding bg-surface-dim/90 backdrop-blur-md border-t border-border-glass">
+<!-- Suggested Prompts -->
+<div class="flex gap-3 mb-4 overflow-x-auto pb-2 scrollbar-hide"><button class="whitespace-nowrap bg-surface-container-low border border-border-glass px-5 py-2.5 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-highest hover:border-secondary/50 hover:text-secondary transition-all flex items-center gap-2 shadow-sm active:scale-95"><span class="material-symbols-outlined text-secondary text-sm">insights</span> Detail the bottleneck at Warehouse B</button><button class="whitespace-nowrap bg-surface-container-low border border-border-glass px-5 py-2.5 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-highest hover:border-secondary/50 hover:text-secondary transition-all flex items-center gap-2 shadow-sm active:scale-95"><span class="material-symbols-outlined text-secondary text-sm">payments</span> Calculate cost impact of delays</button><button class="whitespace-nowrap bg-surface-container-low border border-border-glass px-5 py-2.5 rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-highest hover:border-secondary/50 hover:text-secondary transition-all flex items-center gap-2 shadow-sm active:scale-95"><span class="material-symbols-outlined text-secondary text-sm">alt_route</span> Show alternative routing scenarios</button></div>
+<div class="relative">
+<textarea class="w-full border border-border-glass rounded-xl py-5 pl-6 pr-16 font-body-md text-on-surface placeholder-outline-variant focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-secondary/50 resize-none overflow-hidden transition-all bg-surface-container-low/80 backdrop-blur-sm shadow-inner" placeholder="Ask FlowMind about this process data..." rows="1"></textarea>
+<button class="absolute right-3 top-3 p-2 bg-primary-container text-on-primary-container rounded-lg hover:bg-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">send</span>
+</button>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-caps text-label-caps text-outline-variant">AI CAN MAKE MISTAKES. VERIFY IMPORTANT DATA.</span>
+<div class="flex items-center gap-2">
+<button class="text-outline hover:text-on-surface transition-colors p-1"><span class="material-symbols-outlined text-sm">attach_file</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel: Analysis Context -->
+<aside class="w-80 bg-surface-container-lowest hidden xl:flex flex-col h-full border-l border-border-glass">
+<div class="p-6 border-b border-border-glass">
+
+</div>
+
+</aside>
+</main>
+<!-- Footer -->
+<footer class="flex justify-between items-center px-container-padding absolute bottom-0 right-0 left-0 md:left-[280px] py-4 bg-surface-container-lowest border-t border-border-glass z-40 h-[64px]">
+<div class="font-body-sm text-body-sm font-bold text-on-surface-variant">
+                © 2024 FlowMind Intelligence. All rights reserved.
+            </div>
+<div class="flex gap-6">
+<a class="font-label-caps text-label-caps text-compliance-emerald opacity-80 hover:opacity-100 transition-colors flex items-center gap-1" href="#"><span class="material-symbols-outlined text-[14px]">check_circle</span> System Status</a>
+<a class="font-label-caps text-label-caps text-outline opacity-80 hover:opacity-100 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-outline opacity-80 hover:opacity-100 hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</div>
+
+
+</body></html>

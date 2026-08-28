@@ -1,0 +1,28 @@
+ticket_id,status,created_at,assigned_to,department
+C001,Submit Ticket,2026-01-01 08:00:00,Alice,Customer Support
+C001,Review,2026-01-01 09:00:00,Bob,Tier 2
+C001,Approve,2026-01-01 14:00:00,Charlie,Management
+C001,Resolve,2026-01-01 16:00:00,Bob,Tier 2
+C001,Close,2026-01-01 17:00:00,Alice,Customer Support
+C002,Submit Ticket,2026-01-02 08:00:00,Alice,Customer Support
+C002,Review,2026-01-02 09:00:00,Bob,Tier 2
+C002,Approve,2026-01-02 15:00:00,Charlie,Management
+C002,Resolve,2026-01-02 17:00:00,Bob,Tier 2
+C002,Close,2026-01-02 18:00:00,Alice,Customer Support
+C003,Submit Ticket,2026-01-03 08:00:00,Alice,Customer Support
+C003,Review,2026-01-03 09:30:00,Bob,Tier 2
+C003,Request Info,2026-01-03 11:00:00,Bob,Tier 2
+C003,Review,2026-01-03 14:00:00,Bob,Tier 2
+C003,Approve,2026-01-03 19:00:00,Charlie,Management
+C003,Resolve,2026-01-03 21:00:00,Bob,Tier 2
+C003,Close,2026-01-03 22:00:00,Alice,Customer Support
+C004,Submit Ticket,2026-01-04 08:00:00,Alice,Customer Support
+C004,Review,2026-01-04 09:00:00,Bob,Tier 2
+C004,Approve,2026-01-04 14:30:00,Charlie,Management
+C004,Resolve,2026-01-04 16:30:00,Bob,Tier 2
+C004,Close,2026-01-04 17:30:00,Alice,Customer Support
+C005,Submit Ticket,2026-01-05 08:00:00,Alice,Customer Support
+C005,Review,2026-01-05 12:00:00,Bob,Tier 2
+C005,Approve,2026-01-06 14:00:00,Charlie,Management
+C005,Resolve,2026-01-06 18:00:00,Bob,Tier 2
+C005,Close,2026-01-06 19:00:00,Alice,Customer Support

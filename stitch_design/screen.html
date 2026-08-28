@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FlowMind Elite - Process Intelligence Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "surface-dim": "#111317",
+                        "outline": "#908fa0",
+                        "on-secondary-fixed": "#001f26",
+                        "surface": "#111317",
+                        "secondary": "#4cd7f6",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#333539",
+                        "iridescent-border": "rgba(255, 255, 255, 0.12)",
+                        "tertiary-container": "#a078ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed": "#acedff",
+                        "on-tertiary": "#3c0091",
+                        "on-background": "#e2e2e8",
+                        "inverse-on-surface": "#2f3035",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "primary-fixed": "#e1e0ff",
+                        "on-primary": "#1000a9",
+                        "on-tertiary-container": "#340080",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container": "#1e2024",
+                        "on-tertiary-fixed": "#23005c",
+                        "surface-container-high": "#282a2e",
+                        "on-surface": "#e2e2e8",
+                        "outline-variant": "#464554",
+                        "tertiary": "#d0bcff",
+                        "surface-container-lowest": "#0c0e12",
+                        "surface-bright": "#37393e",
+                        "background": "#111317",
+                        "inverse-primary": "#494bd6",
+                        "neon-crimson": "#ff1744",
+                        "inverse-surface": "#e2e2e8",
+                        "on-primary-container": "#0d0096",
+                        "obsidian-base": "#0c0e12",
+                        "on-secondary-container": "#00424e",
+                        "secondary-container": "#03b5d3",
+                        "on-surface-variant": "#c7c4d7",
+                        "emerald-glow": "#00e676",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "obsidian-surface": "#111318",
+                        "on-secondary": "#003640",
+                        "surface-container-low": "#1a1c20",
+                        "primary-container": "#8083ff",
+                        "primary": "#c0c1ff",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface-tint": "#c0c1ff",
+                        "on-primary-fixed": "#07006c",
+                        "surface-container-highest": "#333539"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "1.5rem",
+                        "sidebar-width": "280px",
+                        "margin-page": "2rem",
+                        "section-gap": "8rem",
+                        "container-max": "1440px",
+                        "margin-mobile": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Outfit"],
+                        "headline-sm": ["Outfit"],
+                        "body-lg": ["Inter"],
+                        "display-lg-mobile": ["Outfit"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-md-mobile": ["Outfit"],
+                        "data-mono": ["Inter"],
+                        "headline-lg": ["Outfit"],
+                        "display-md": ["Outfit"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0c0e12; /* obsidian-base */
+            color: #e2e2e8; /* on-surface */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+        
+        /* Grid Canvas Background */
+        .grid-canvas {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(12, 14, 18, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        .glass-card {
+            background: rgba(26, 28, 32, 0.65); /* slightly lighter than base for contrast */
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 36px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Luminous Core Button */
+        .btn-luminous {
+            background: linear-gradient(135deg, #494bd6, #8083ff);
+            box-shadow: 0 0 24px rgba(73, 75, 214, 0.25);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-luminous:hover {
+            box-shadow: 0 0 40px rgba(73, 75, 214, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Process Node Pulsing */
+        @keyframes pulse-healthy {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+        }
+        .node-pulse-healthy {
+            animation: pulse-healthy 2.5s infinite;
+        }
+
+        @keyframes pulse-critical {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.8); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(255, 23, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 23, 68, 0); }
+        }
+        .node-pulse-critical {
+            animation: pulse-critical 1.5s infinite;
+        }
+
+        /* Flow Edges Animation */
+        .flow-path {
+            stroke-dasharray: 8;
+            animation: dash 15s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -1000; }
+        }
+        
+        .glow-edge {
+            filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.6));
+            animation: pulse-edge 2s infinite alternate;
+        }
+        
+        @keyframes pulse-edge {
+            0% { filter: drop-shadow(0 0 4px rgba(255, 23, 68, 0.4)); opacity: 0.8; }
+            100% { filter: drop-shadow(0 0 12px rgba(255, 23, 68, 0.8)); opacity: 1; }
+        }
+        
+        /* Custom Scrollbar for Drawer */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="h-screen w-full overflow-hidden flex flex-col font-body-md text-body-md antialiased relative">
+<!-- Atmospheric Mesh Background (Refined) -->
+<div class="fixed inset-0 pointer-events-none z-[-1]" style="background: 
+        radial-gradient(circle at 15% 20%, rgba(73, 75, 214, 0.08) 0%, transparent 40%), 
+        radial-gradient(circle at 85% 80%, rgba(160, 120, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(76, 215, 246, 0.03) 0%, transparent 60%); 
+        filter: blur(60px);"></div>
+<!-- TopNavBar -->
+<header class="bg-obsidian-base/80 backdrop-blur-2xl font-body-md text-body-md fixed top-0 w-full z-50 border-b border-white/5 shadow-2xl flex justify-between items-center px-gutter-grid h-16 w-full">
+<div class="flex items-center gap-4">
+<img alt="FlowMind Elite Logo" class="h-8 w-8 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UlbG-QMeWFkg3OtVcVeawvMx6-WqTtfMEbtEcJ5_diupVKhIhNWRPhJgt7gFM09gje05mRE_Zf4SX55pPCfgCMQgsTVod_Gwrkb4j2BrYqQVxbAR7oGyYGRjxRdS_OD8w2ltSB83ELSl0_5at15-XKE9i-LaznpE9NzRxHdkipEVnbU8WITbgekK-0nqqFgHRTNie9G5wSb0wDrAmn_Y8ZlafNUFLdzNnJz8ox-y_AnMW690CVW6rdYto"/>
+<span class="font-headline-lg text-lg font-bold text-white tracking-wide">FlowMind <span class="font-normal text-on-surface-variant">Elite</span></span>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="text-white border-b-2 border-primary pb-1" href="#">Process Map</a>
+<a class="text-on-surface-variant hover:text-white transition-colors" href="#">Library</a>
+</nav>
+<div class="flex items-center gap-5">
+<button class="text-on-surface-variant hover:text-white transition-colors cursor-pointer active:scale-95" data-icon="search">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-white transition-colors cursor-pointer active:scale-95 relative" data-icon="notifications">
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-white transition-colors cursor-pointer active:scale-95" data-icon="settings">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<div class="h-6 w-px bg-white/10 mx-1"></div>
+<img class="h-8 w-8 rounded-full border border-white/20 object-cover cursor-pointer" data-alt="User Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8C3-4Fswj8ZTAf8xrgthKV6qn7s4f4UeVnoz-jRUluPReskFLgO0vDtZeI35Aw654qgX_Ma28BCa7vyxk3ZQm1YxqADsy2HA-GbPX5iSqEOKEUCNHeSx5asy95-H-GephdRUcLUg2C1AV0y2BmoHDVpq_wJw7YRigb5TEAS8GgwJJyH14lEQlwTrT1GyRQSQvtZNEZhTrYIY08L3iXE-1u0Sv1OixYvpooVn11UyrjYrdA4n-Vxwi"/>
+</div>
+</header>
+<div class="flex flex-1 pt-16 overflow-hidden relative">
+<!-- SideNavBar -->
+<aside class="hidden md:flex bg-obsidian-base/60 backdrop-blur-3xl font-body-md text-sm fixed left-0 top-16 h-[calc(100vh-64px)] w-sidebar-width border-r border-white/5 shadow-[40px_0_80px_-20px_rgba(0,0,0,0.5)] flex flex-col py-6 z-40">
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-primary">corporate_fare</span>
+</div>
+<div>
+<div class="font-headline-sm text-white text-base">Global Operations</div>
+<div class="text-primary/80 font-data-mono text-[10px] uppercase tracking-widest mt-0.5">Enterprise Tier</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-primary border-l-2 border-primary bg-primary/5 transition-all duration-200 shadow-[inset_20px_0_40px_-20px_rgba(192,193,255,0.1)]" href="#">
+<span class="material-symbols-outlined text-xl">account_tree</span>
+<span class="font-medium">Process Map</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">query_stats</span>
+<span>Metrics</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+<span>Variants</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">insights</span>
+<span>Findings</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-xl">hub</span>
+<span>Scenarios</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-xl text-tertiary-container group-hover:drop-shadow-[0_0_8px_rgba(160,120,255,0.5)] transition-all">psychology</span>
+<span class="text-tertiary-container font-medium group-hover:text-tertiary transition-colors">AI Analyst</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full btn-luminous text-white py-2.5 rounded-lg font-medium flex items-center justify-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Analysis
+                </button>
+</div>
+<div class="space-y-1 mt-auto border-t border-white/5 pt-4">
+<a class="flex items-center gap-3 px-6 py-2 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200 text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-2 text-on-surface-variant hover:text-white hover:bg-white/5 transition-all duration-200 text-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas Area -->
+<main class="flex-1 md:ml-sidebar-width relative grid-canvas overflow-hidden flex cursor-grab active:cursor-grabbing" id="dfg-canvas">
+<!-- Canvas Controls Overlay -->
+<div class="absolute top-6 left-6 z-10 glass-panel rounded-lg p-1.5 flex gap-1">
+<button class="p-2 text-on-surface-variant hover:text-white rounded hover:bg-white/10 transition-colors" title="Zoom In"><span class="material-symbols-outlined text-xl">zoom_in</span></button>
+<button class="p-2 text-on-surface-variant hover:text-white rounded hover:bg-white/10 transition-colors" title="Zoom Out"><span class="material-symbols-outlined text-xl">zoom_out</span></button>
+<div class="w-px bg-white/10 mx-1 my-2"></div>
+<button class="p-2 text-on-surface-variant hover:text-white rounded hover:bg-white/10 transition-colors" title="Fit to Screen"><span class="material-symbols-outlined text-xl">fit_screen</span></button>
+</div>
+<!-- Status Legend -->
+<div class="absolute top-6 right-[430px] z-10 glass-panel rounded-full px-5 py-2.5 flex items-center gap-5 text-xs font-medium border border-white/5 shadow-xl">
+<div class="flex items-center gap-2 text-on-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-glow shadow-[0_0_8px_rgba(0,230,118,0.5)]"></div> Happy Path
+                </div>
+<div class="w-px h-3 bg-white/10"></div>
+<div class="flex items-center gap-2 text-on-surface">
+<div class="w-2.5 h-2.5 rounded-full bg-neon-crimson shadow-[0_0_8px_rgba(255,23,68,0.5)]"></div> Bottleneck
+                </div>
+</div>
+<!-- SVG Graph Connections -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 1;">
+<!-- Regular Path -->
+<path d="M 250 200 C 350 200, 350 350, 450 350" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="3"></path>
+<path class="flow-path" d="M 250 200 C 350 200, 350 350, 450 350" fill="none" stroke="#8083ff" stroke-width="2"></path>
+<!-- Bottleneck Path -->
+<path class="glow-edge" d="M 450 350 C 550 350, 550 200, 650 200" fill="none" stroke="url(#bottleneck-grad)" stroke-linecap="round" stroke-width="5"></path>
+<path class="flow-path" d="M 450 350 C 550 350, 550 200, 650 200" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2" style="stroke-dasharray: 4; animation-duration: 5s;"></path>
+<!-- Definitions -->
+<defs>
+<lineargradient id="bottleneck-grad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="rgba(255, 23, 68, 0.2)"></stop>
+<stop offset="100%" stop-color="rgba(255, 23, 68, 1)"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- Nodes Layer -->
+<div class="absolute inset-0" style="z-index: 2;">
+<!-- Node 1 -->
+<div class="absolute glass-card rounded-xl p-4 w-48 border-t-2 border-t-secondary cursor-pointer hover:border-t-primary transition-all hover:-translate-y-1 hover:shadow-2xl" style="left: 150px; top: 160px;">
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm text-white">Receive Order</span>
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(76,215,246,0.5)]"></div>
+</div>
+<div class="font-data-mono text-on-surface-variant text-[11px] mb-2 uppercase tracking-wider flex justify-between"><span>Vol:</span> <span class="text-white">12,450</span></div>
+<div class="w-full bg-black/40 rounded-full h-1 mt-2 overflow-hidden shadow-inner">
+<div class="bg-secondary h-full rounded-full w-full"></div>
+</div>
+</div>
+<!-- Node 2 (Healthy) -->
+<div class="absolute glass-card rounded-xl p-4 w-48 border-t-2 border-t-emerald-glow cursor-pointer hover:border-t-primary transition-all hover:-translate-y-1 hover:shadow-2xl shadow-[0_0_40px_rgba(0,230,118,0.05)]" style="left: 400px; top: 310px;">
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm text-white">Validate Payment</span>
+<div class="w-2 h-2 rounded-full bg-emerald-glow node-pulse-healthy"></div>
+</div>
+<div class="font-data-mono text-on-surface-variant text-[11px] mb-1 uppercase tracking-wider flex justify-between"><span>Vol:</span> <span class="text-white">11,200</span></div>
+<div class="font-data-mono text-[11px] text-emerald-glow uppercase tracking-wider flex justify-between mt-1"><span>Avg:</span> <span>1.2s</span></div>
+<div class="w-full bg-black/40 rounded-full h-1 mt-3 overflow-hidden shadow-inner">
+<div class="bg-emerald-glow h-full rounded-full w-[90%]"></div>
+</div>
+</div>
+<!-- Node 3 (Bottleneck) -->
+<div class="absolute glass-card rounded-xl p-4 w-48 border-t-2 border-t-neon-crimson cursor-pointer shadow-[0_12px_40px_rgba(255,23,68,0.15)] ring-1 ring-neon-crimson/40 hover:-translate-y-1 transition-transform" style="left: 650px; top: 160px;">
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-sm text-neon-crimson drop-shadow-[0_0_4px_rgba(255,23,68,0.5)]">Manual Review</span>
+<div class="w-2 h-2 rounded-full bg-neon-crimson node-pulse-critical"></div>
+</div>
+<div class="font-data-mono text-on-surface-variant text-[11px] mb-1 uppercase tracking-wider flex justify-between"><span>Vol:</span> <span class="text-white">3,450</span></div>
+<div class="font-data-mono text-[11px] text-neon-crimson font-semibold uppercase tracking-wider flex justify-between mt-1"><span>Avg:</span> <span>48h 12m</span></div>
+<div class="w-full bg-black/40 rounded-full h-1.5 mt-3 overflow-hidden shadow-inner">
+<div class="bg-gradient-to-r from-neon-crimson to-[#ff9100] h-full rounded-full w-3/4"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Side Drawer: Transition Details -->
+<aside class="w-[420px] glass-panel border-l border-white/5 flex flex-col z-30 shadow-[-30px_0_60px_-15px_rgba(0,0,0,0.6)]">
+<div class="px-8 py-6 border-b border-white/5 flex justify-between items-start">
+<div>
+<h2 class="font-headline-lg text-xl text-white mb-2">Transition Details</h2>
+<div class="text-on-surface-variant text-xs flex items-center gap-2 font-medium bg-black/20 py-1 px-3 rounded-full border border-white/5 inline-flex">
+<span class="text-white">Validate</span>
+<span class="material-symbols-outlined text-[14px] text-white/50">arrow_forward</span>
+<span class="text-neon-crimson drop-shadow-[0_0_4px_rgba(255,23,68,0.4)]">Manual Review</span>
+</div>
+</div>
+<button class="p-2 -mr-2 -mt-2 text-on-surface-variant hover:text-white rounded-full hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-xl">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-8 space-y-10">
+<!-- Key Stats Grid -->
+<div class="grid grid-cols-2 gap-5">
+<div class="bg-black/20 p-5 rounded-2xl border border-white/5 shadow-inner flex flex-col justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-white/5 rounded-bl-full blur-xl pointer-events-none"></div>
+<div class="text-on-surface-variant font-data-mono text-[10px] uppercase tracking-widest mb-2">Frequency</div>
+<div class="font-headline-lg text-white text-3xl mb-1">3,450</div>
+<div class="text-emerald-glow text-xs flex items-center gap-1 font-medium"><span class="material-symbols-outlined text-[14px]">trending_down</span> -12% vs last week</div>
+</div>
+<div class="bg-black/20 p-5 rounded-2xl border border-neon-crimson/20 shadow-[inset_0_0_20px_rgba(255,23,68,0.05)] flex flex-col justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-neon-crimson/10 rounded-bl-full blur-xl pointer-events-none"></div>
+<div class="text-on-surface-variant font-data-mono text-[10px] uppercase tracking-widest mb-2">Avg Cycle Time</div>
+<div class="font-headline-lg text-neon-crimson text-3xl mb-1 drop-shadow-[0_0_8px_rgba(255,23,68,0.3)]">48.2h</div>
+<div class="text-neon-crimson text-xs flex items-center gap-1 font-medium"><span class="material-symbols-outlined text-[14px]">trending_up</span> +4.5h vs baseline</div>
+</div>
+</div>
+<!-- High Fidelity Histogram -->
+<div>
+<h3 class="font-headline-sm text-sm text-white mb-5 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">bar_chart</span>
+                        Cycle Time Distribution
+                    </h3>
+<div class="h-48 bg-black/30 rounded-2xl border border-white/5 p-5 relative flex items-end gap-1.5 shadow-inner">
+<!-- Chart Grid Lines -->
+<div class="absolute inset-0 p-5 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+</div>
+<!-- Precision Histogram Bars -->
+<div class="w-full h-[15%] bg-primary/30 rounded-t border-t border-primary/50 hover:bg-primary/60 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[25%] bg-primary/40 rounded-t border-t border-primary/50 hover:bg-primary/70 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[40%] bg-primary/50 rounded-t border-t border-primary/60 hover:bg-primary/80 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[70%] bg-primary/60 rounded-t border-t border-primary/70 hover:bg-primary transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[95%] bg-gradient-to-t from-primary/60 to-primary rounded-t border-t-2 border-white hover:brightness-110 transition-all cursor-pointer relative group z-20 shadow-[0_0_15px_rgba(192,193,255,0.4)]">
+<!-- Premium Tooltip -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 hidden group-hover:flex flex-col items-center z-30">
+<div class="bg-obsidian-surface px-3 py-2 rounded-lg border border-white/10 shadow-2xl text-xs whitespace-nowrap">
+<div class="text-white font-bold mb-0.5">48.2h Median</div>
+<div class="text-on-surface-variant font-data-mono text-[10px]">985 occurrences</div>
+</div>
+<div class="w-2 h-2 bg-obsidian-surface border-b border-r border-white/10 rotate-45 -mt-1.5"></div>
+</div>
+</div>
+<div class="w-full h-[80%] bg-primary/50 rounded-t border-t border-primary/50 hover:bg-primary/70 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[55%] bg-gradient-to-t from-neon-crimson/20 to-neon-crimson/50 rounded-t border-t border-neon-crimson/60 hover:to-neon-crimson/70 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[85%] bg-gradient-to-t from-neon-crimson/30 to-neon-crimson/70 rounded-t border-t border-neon-crimson hover:to-neon-crimson/90 transition-colors cursor-pointer relative z-10 shadow-[0_0_10px_rgba(255,23,68,0.2)]"></div>
+<div class="w-full h-[45%] bg-gradient-to-t from-neon-crimson/20 to-neon-crimson/40 rounded-t border-t border-neon-crimson/50 hover:to-neon-crimson/60 transition-colors cursor-pointer relative z-10"></div>
+<div class="w-full h-[25%] bg-neon-crimson/20 rounded-t border-t border-neon-crimson/30 hover:bg-neon-crimson/40 transition-colors cursor-pointer relative z-10"></div>
+<!-- Trend Line Smooth -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-20" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 5 80 Q 25 50, 45 10 T 75 25 T 95 70" fill="none" stroke="rgba(255,255,255,0.4)" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant mt-3 font-data-mono uppercase tracking-widest">
+<span>0h</span>
+<span class="text-white">48h (Target)</span>
+<span>120h+</span>
+</div>
+</div>
+<!-- Premium AI Insight Card -->
+<div class="relative overflow-hidden rounded-2xl p-[1px] bg-gradient-to-br from-tertiary-container via-surface to-obsidian-base shadow-[0_20px_40px_-15px_rgba(160,120,255,0.15)] group">
+<div class="bg-black/60 backdrop-blur-xl h-full w-full rounded-2xl p-6 relative z-10">
+<div class="flex items-start justify-between mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 border border-tertiary-container/30 flex items-center justify-center shadow-[0_0_15px_rgba(160,120,255,0.2)]">
+<span class="material-symbols-outlined text-tertiary-container text-xl animate-pulse">psychology_alt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-sm text-tertiary-container drop-shadow-[0_0_8px_rgba(160,120,255,0.4)]">AI Root Cause Insight</h3>
+<div class="text-[10px] text-on-surface-variant font-data-mono uppercase tracking-widest mt-0.5">Confidence: 94%</div>
+</div>
+</div>
+</div>
+<p class="text-[13px] text-white/80 leading-relaxed font-light">
+<strong class="text-white font-semibold block mb-1">Resource starvation detected.</strong> 
+                            78% of cases entering 'Manual Review' from 'Validate Payment' over the last 72 hours lack assigned reviewers in the EMEA pool. Consider dynamic load balancing or temporary auto-approval for low-risk tiers.
+                        </p>
+<div class="mt-6 flex gap-3">
+<button class="flex-1 py-2.5 bg-gradient-to-r from-tertiary-container/20 to-tertiary-container/10 border border-tertiary-container/50 text-white rounded-lg text-xs font-semibold hover:from-tertiary-container/30 hover:to-tertiary-container/20 transition-all shadow-[0_0_15px_rgba(160,120,255,0.1)]">Apply Ruleset</button>
+<button class="flex-1 py-2.5 bg-white/5 border border-white/10 text-on-surface-variant rounded-lg text-xs font-semibold hover:bg-white/10 hover:text-white transition-all">View Evidence</button>
+</div>
+</div>
+<!-- Decorative glow behind AI card -->
+<div class="absolute -top-16 -right-16 w-48 h-48 bg-tertiary-container/20 rounded-full blur-3xl z-0 pointer-events-none group-hover:bg-tertiary-container/30 transition-colors duration-700"></div>
+</div>
+</div>
+</aside>
+</div>
+</body></html>

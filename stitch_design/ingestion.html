@@ -1,0 +1,350 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FlowMind - Map Columns</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#c0c1ff",
+                    "primary-container": "#8083ff",
+                    "on-error": "#690005",
+                    "inverse-surface": "#dae2fd",
+                    "surface-slate": "#1E293B",
+                    "on-primary-container": "#0d0096",
+                    "surface-bright": "#31394d",
+                    "background": "#0b1326",
+                    "bg-blur": "rgba(15, 23, 42, 0.8)",
+                    "on-secondary-container": "#00424e",
+                    "surface-dim": "#0b1326",
+                    "surface-container-highest": "#2d3449",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-tertiary-fixed-variant": "#92002a",
+                    "surface-container-low": "#131b2e",
+                    "on-secondary-fixed": "#001f26",
+                    "on-tertiary-fixed": "#40000d",
+                    "error-container": "#93000a",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-container": "#ff516a",
+                    "surface": "#0b1326",
+                    "inverse-primary": "#494bd6",
+                    "surface-variant": "#2d3449",
+                    "border-glass": "rgba(255, 255, 255, 0.1)",
+                    "outline": "#908fa0",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "surface-container": "#171f33",
+                    "secondary": "#4cd7f6",
+                    "compliance-emerald": "#10B981",
+                    "on-tertiary-container": "#5b0017",
+                    "outline-variant": "#464554",
+                    "on-primary": "#1000a9",
+                    "on-surface-variant": "#c7c4d7",
+                    "on-error-container": "#ffdad6",
+                    "primary": "#c0c1ff",
+                    "error": "#ffb4ab",
+                    "on-background": "#dae2fd",
+                    "tertiary": "#ffb2b7",
+                    "tertiary-fixed": "#ffdadb",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "secondary-fixed": "#acedff",
+                    "surface-container-high": "#222a3d",
+                    "on-secondary": "#003640",
+                    "on-primary-fixed": "#07006c",
+                    "primary-fixed": "#e1e0ff",
+                    "on-surface": "#dae2fd",
+                    "surface-container-lowest": "#060e20",
+                    "secondary-container": "#03b5d3",
+                    "on-tertiary": "#67001b",
+                    "tertiary-fixed-dim": "#ffb2b7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "container-padding": "32px",
+                    "stack-lg": "24px",
+                    "topbar-height": "64px",
+                    "sidebar-width": "280px",
+                    "stack-md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "display-lg": ["Outfit"],
+                    "headline-sm": ["Outfit"],
+                    "headline-md": ["Outfit"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Outfit"],
+                    "body-md": ["Inter"],
+                    "numeric-mono": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "numeric-mono": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom scrollbar for tables */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3); 
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- Ambient Background -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+<!-- 
+        NOTE: Semantic Shell Navigation (SideNavBar, BottomNavBar, Standard TopAppBar) is SUPPRESSED here 
+        because this is a Transactional/Linear flow (Dataset Ingestion Wizard). 
+        A custom focused header is provided instead.
+    -->
+<!-- Flow Header -->
+<header class="relative z-10 bg-bg-blur backdrop-blur-md border-b border-border-glass h-topbar-height flex items-center justify-between px-container-padding">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">dataset</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Dataset Ingestion</span>
+</div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[18px]">close</span>
+            CANCEL UPLOAD
+        </button>
+</header>
+<!-- Main Workspace -->
+<main class="relative z-10 flex-1 flex flex-col px-container-padding py-stack-lg max-w-[1600px] mx-auto w-full gap-stack-lg">
+<!-- Stepper -->
+<div class="flex items-center justify-between w-full max-w-3xl mx-auto mb-4 relative">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-surface-container-highest -z-10 -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-1/3 h-[2px] bg-primary shadow-[0_0_8px_rgba(192,193,255,0.5)] -z-10 -translate-y-1/2 transition-all duration-500"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2 bg-background px-4">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">1. Upload</span>
+</div>
+<!-- Step 2 (Active) -->
+<div class="flex flex-col items-center gap-2 bg-background px-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container ring-4 ring-primary/20 flex items-center justify-center font-label-caps text-label-caps">
+                    2
+                </div>
+<span class="font-label-caps text-label-caps text-primary-container">2. Map Columns</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2 bg-background px-4 opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-border-glass text-outline flex items-center justify-center font-label-caps text-label-caps">
+                    3
+                </div>
+<span class="font-label-caps text-label-caps text-outline">3. Quality</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2 bg-background px-4 opacity-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-border-glass text-outline flex items-center justify-center font-label-caps text-label-caps">
+                    4
+                </div>
+<span class="font-label-caps text-label-caps text-outline">4. Finalize</span>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter h-full min-h-[600px]">
+<!-- Left Column: Mapping Interface -->
+<div class="lg:col-span-5 flex flex-col gap-stack-md">
+<div class="bg-surface-slate/60 backdrop-blur-[20px] border border-border-glass rounded-xl p-6 flex flex-col h-full">
+<div class="mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Attribute Mapping</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Map your CSV columns to the required Process Mining dimensions.</p>
+</div>
+<div class="flex flex-col gap-4 flex-1">
+<!-- Mapping Row: Case ID -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-border-glass/50 hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-3 w-1/3">
+<span class="material-symbols-outlined text-outline">key</span>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface">Case ID</div>
+<div class="font-body-sm text-body-sm text-error text-[10px] mt-1">*Required</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">arrow_right_alt</span>
+<div class="w-1/2">
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-slate border border-primary/40 rounded-md text-left focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="font-numeric-mono text-numeric-mono text-primary">Order_ID</span>
+<span class="material-symbols-outlined text-[18px] text-primary">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Mapping Row: Activity -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-border-glass/50 hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-3 w-1/3">
+<span class="material-symbols-outlined text-outline">format_list_bulleted</span>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface">Activity</div>
+<div class="font-body-sm text-body-sm text-error text-[10px] mt-1">*Required</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">arrow_right_alt</span>
+<div class="w-1/2">
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-slate border border-primary/40 rounded-md text-left focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="font-numeric-mono text-numeric-mono text-primary">Activity_Name</span>
+<span class="material-symbols-outlined text-[18px] text-primary">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Mapping Row: Timestamp -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-border-glass/50 hover:border-primary/30 transition-colors">
+<div class="flex items-center gap-3 w-1/3">
+<span class="material-symbols-outlined text-outline">schedule</span>
+<div>
+<div class="font-label-caps text-label-caps text-on-surface">Timestamp</div>
+<div class="font-body-sm text-body-sm text-error text-[10px] mt-1">*Required</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">arrow_right_alt</span>
+<div class="w-1/2">
+<button class="w-full flex items-center justify-between px-3 py-2 bg-surface-slate border border-primary/40 rounded-md text-left focus:outline-none focus:ring-1 focus:ring-primary">
+<span class="font-numeric-mono text-numeric-mono text-primary">Time</span>
+<span class="material-symbols-outlined text-[18px] text-primary">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Optional Attribute -->
+<div class="flex flex-col items-center justify-center p-4 border border-dashed border-border-glass rounded-lg mt-2 cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-outline mb-1">add</span>
+<span class="font-label-caps text-label-caps text-outline">Map Additional Attribute</span>
+</div>
+</div>
+<div class="mt-6 flex justify-end gap-3">
+<button class="px-6 py-2 rounded-lg font-label-caps text-label-caps text-on-surface border border-border-glass hover:bg-surface-container-highest transition-colors">Reset</button>
+<button class="px-6 py-2 rounded-lg font-label-caps text-label-caps text-surface bg-primary hover:bg-primary-container transition-colors shadow-[0_0_15px_rgba(192,193,255,0.3)]">Continue to Quality</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Scorecard & Preview -->
+<div class="lg:col-span-7 flex flex-col gap-stack-md">
+<!-- Quality Scorecard -->
+<div class="bg-surface-slate/60 backdrop-blur-[20px] border border-border-glass rounded-xl p-6 flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Mapping Confidence</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Based on semantic matching and data types.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right">
+<div class="font-display-lg text-display-lg text-compliance-emerald leading-none">88%</div>
+<div class="font-label-caps text-label-caps text-compliance-emerald/70 mt-1">GOOD FIT</div>
+</div>
+<!-- Mini chart visualization -->
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-highest relative flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<path class="text-compliance-emerald stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="88, 100" stroke-width="4"></path>
+</svg>
+<span class="material-symbols-outlined text-compliance-emerald text-[24px]">verified</span>
+</div>
+</div>
+</div>
+<!-- Data Preview Table -->
+<div class="bg-surface-slate/60 backdrop-blur-[20px] border border-border-glass rounded-xl flex flex-col flex-1 overflow-hidden">
+<div class="p-4 border-b border-border-glass bg-surface-container-low/50 flex justify-between items-center">
+<h3 class="font-label-caps text-label-caps text-on-surface">Data Preview (First 100 Rows)</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">source_data_v2.csv</span>
+</div>
+<div class="overflow-x-auto overflow-y-auto flex-1 p-4">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr>
+<th class="p-3 border-b border-border-glass font-label-caps text-label-caps text-primary bg-primary/5 rounded-tl-md">
+<div class="flex items-center gap-1">Order_ID <span class="material-symbols-outlined text-[14px]">link</span></div>
+</th>
+<th class="p-3 border-b border-border-glass font-label-caps text-label-caps text-primary bg-primary/5">
+<div class="flex items-center gap-1">Activity_Name <span class="material-symbols-outlined text-[14px]">link</span></div>
+</th>
+<th class="p-3 border-b border-border-glass font-label-caps text-label-caps text-primary bg-primary/5">
+<div class="flex items-center gap-1">Time <span class="material-symbols-outlined text-[14px]">link</span></div>
+</th>
+<th class="p-3 border-b border-border-glass font-label-caps text-label-caps text-outline">Resource</th>
+<th class="p-3 border-b border-border-glass font-label-caps text-label-caps text-outline rounded-tr-md">Cost</th>
+</tr>
+</thead>
+<tbody class="font-numeric-mono text-numeric-mono text-on-surface-variant">
+<tr class="hover:bg-surface-container-highest/50 transition-colors">
+<td class="p-3 border-b border-border-glass/30">ORD-901</td>
+<td class="p-3 border-b border-border-glass/30">Receive Order</td>
+<td class="p-3 border-b border-border-glass/30 text-outline">2024-01-15T08:30:00Z</td>
+<td class="p-3 border-b border-border-glass/30">System</td>
+<td class="p-3 border-b border-border-glass/30">0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-highest/50 transition-colors">
+<td class="p-3 border-b border-border-glass/30">ORD-901</td>
+<td class="p-3 border-b border-border-glass/30">Check Inventory</td>
+<td class="p-3 border-b border-border-glass/30 text-outline">2024-01-15T08:35:12Z</td>
+<td class="p-3 border-b border-border-glass/30">J. Smith</td>
+<td class="p-3 border-b border-border-glass/30">12.50</td>
+</tr>
+<tr class="hover:bg-surface-container-highest/50 transition-colors">
+<td class="p-3 border-b border-border-glass/30">ORD-902</td>
+<td class="p-3 border-b border-border-glass/30">Receive Order</td>
+<td class="p-3 border-b border-border-glass/30 text-outline">2024-01-15T09:12:45Z</td>
+<td class="p-3 border-b border-border-glass/30">System</td>
+<td class="p-3 border-b border-border-glass/30">0.00</td>
+</tr>
+<tr class="hover:bg-surface-container-highest/50 transition-colors">
+<td class="p-3 border-b border-border-glass/30">ORD-901</td>
+<td class="p-3 border-b border-border-glass/30">Pack Items</td>
+<td class="p-3 border-b border-border-glass/30 text-outline">2024-01-15T11:20:00Z</td>
+<td class="p-3 border-b border-border-glass/30">Automation_Arm_1</td>
+<td class="p-3 border-b border-border-glass/30">4.20</td>
+</tr>
+<tr class="hover:bg-surface-container-highest/50 transition-colors opacity-50">
+<td class="p-3 border-b border-border-glass/30">...</td>
+<td class="p-3 border-b border-border-glass/30">...</td>
+<td class="p-3 border-b border-border-glass/30">...</td>
+<td class="p-3 border-b border-border-glass/30">...</td>
+<td class="p-3 border-b border-border-glass/30">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

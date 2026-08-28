@@ -1,0 +1,568 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dataset Ingestion &amp; Quality View - FlowMind</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#c7c4d7",
+                      "on-tertiary": "#003824",
+                      "on-secondary-fixed": "#001f26",
+                      "primary-fixed-dim": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "surface-container": "#171f33",
+                      "primary-container": "#8083ff",
+                      "surface-container-lowest": "#060e20",
+                      "accent-cyan": "#06B6D4",
+                      "surface": "#0b1326",
+                      "bg-slate-900": "#0F172A",
+                      "outline": "#908fa0",
+                      "bg-slate-800": "#1E293B",
+                      "surface-variant": "#2d3449",
+                      "glass-stroke": "rgba(255, 255, 255, 0.08)",
+                      "secondary-fixed": "#acedff",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#00424e",
+                      "critical-crimson": "#EF4444",
+                      "on-surface": "#dae2fd",
+                      "surface-dim": "#0b1326",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "tertiary-fixed": "#6ffbbe",
+                      "inverse-surface": "#dae2fd",
+                      "on-secondary": "#003640",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "background": "#0b1326",
+                      "surface-container-highest": "#2d3449",
+                      "inverse-on-surface": "#283044",
+                      "primary-fixed": "#e1e0ff",
+                      "on-primary-fixed": "#07006c",
+                      "inverse-primary": "#494bd6",
+                      "secondary": "#4cd7f6",
+                      "surface-container-low": "#131b2e",
+                      "on-primary-fixed-variant": "#2f2ebe",
+                      "on-primary": "#1000a9",
+                      "surface-tint": "#c0c1ff",
+                      "success-emerald": "#10B981",
+                      "on-tertiary-fixed": "#002113",
+                      "error": "#ffb4ab",
+                      "on-background": "#dae2fd",
+                      "accent-indigo": "#6366F1",
+                      "tertiary-container": "#00885d",
+                      "secondary-container": "#03b5d3",
+                      "on-primary-container": "#0d0096",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "surface-bright": "#31394d",
+                      "outline-variant": "#464554",
+                      "primary": "#c0c1ff",
+                      "on-tertiary-container": "#000703",
+                      "tertiary": "#4edea3",
+                      "surface-container-high": "#222a3d",
+                      "on-secondary-fixed-variant": "#004e5c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "8px",
+                      "margin-mobile": "16px",
+                      "sidebar-width": "260px",
+                      "margin-desktop": "40px",
+                      "container-max": "1440px",
+                      "stack-lg": "32px",
+                      "stack-md": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Outfit"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Outfit"
+                      ],
+                      "mono-data": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Outfit"
+                      ],
+                      "headline-sm": [
+                              "Outfit"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-data": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-bright');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline-variant');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (from JSON) -->
+<nav class="fixed h-full w-[260px] left-0 top-0 bg-surface-container dark:bg-surface-container border-r border-glass-stroke shadow-sm flex flex-col py-stack-md z-50">
+<!-- Brand / Header -->
+<div class="px-gutter mb-stack-lg flex items-center gap-stack-sm">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-indigo to-accent-cyan flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.5)]">
+<span class="material-symbols-outlined text-white text-[20px]" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary tracking-tight">FlowMind</h1>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest text-[10px]">Process Intelligence</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-margin-mobile mb-stack-md">
+<button class="w-full bg-accent-indigo hover:bg-accent-indigo/90 text-white font-body-sm text-body-sm font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_20px_rgba(99,102,241,0.4)]">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                Upload Dataset
+            </button>
+</div>
+<!-- Primary Navigation Links -->
+<ul class="flex-1 flex flex-col gap-1 px-margin-mobile overflow-y-auto">
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-body-sm text-body-sm">Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">account_tree</span>
+<span class="font-body-sm text-body-sm">Process Map</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">analytics</span>
+<span class="font-body-sm text-body-sm">Metrics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary font-bold border-r-2 border-primary bg-surface-variant/30 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">alt_route</span>
+<span class="font-body-sm text-body-sm">Variants</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">troubleshoot</span>
+<span class="font-body-sm text-body-sm">Findings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">hub</span>
+<span class="font-body-sm text-body-sm">Scenarios</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform text-accent-cyan">psychology</span>
+<span class="font-body-sm text-body-sm text-accent-cyan">AI Analyst</span>
+</a>
+</li>
+</ul>
+<!-- Footer Links -->
+<div class="mt-auto px-margin-mobile pt-stack-md border-t border-glass-stroke border-opacity-50">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors hover:text-primary group" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="font-body-sm text-body-sm">Help</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (from JSON) -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] z-40 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-glass-stroke flex justify-between items-center px-margin-desktop h-16">
+<!-- Left / Search -->
+<div class="flex items-center gap-stack-lg">
+<div class="font-headline-md text-headline-md font-extrabold text-on-surface dark:text-on-surface flex items-center gap-2">
+                Supply Chain Audit
+             </div>
+<nav class="hidden lg:flex items-center gap-stack-md">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Dashboard</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Inventory</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-all" href="#">Logistics</a>
+</nav>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-stack-md">
+<div class="flex items-center gap-2 border-r border-glass-stroke pr-4 mr-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+</button>
+</div>
+<button class="font-body-sm text-body-sm font-medium text-on-surface hover:text-primary transition-colors px-3 py-1.5 border border-glass-stroke rounded-lg bg-surface-variant/30 hover:bg-surface-variant/50">
+                Ready
+            </button>
+<button class="font-body-sm text-body-sm font-medium text-white bg-accent-indigo hover:bg-accent-indigo/90 transition-colors px-4 py-1.5 rounded-lg shadow-sm">
+                Share
+            </button>
+<button class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-glass-stroke hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A macro photography shot of a sleek, abstract geometric sphere composed of dark chrome and glowing cyan accents, resting on a matte dark slate surface with minimal soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlTIiVp2SSpzMjYo_LuaxETVzfnpAndRO5frNmiaK0TDvz6Vmxaf09tps99xfu6PMzfV8AvWxqnxsfDw2AAVyGmusuQNCJv4eY0d29QgyoJf2HjaOUq8Tl4jmJBiCJSvS0i69OhzLoA5n8lSJA4O346M6ib4B_seQ22C8n650EWLz_N71Ee5KGbYEDdKVELaKblE0qwduNFBrVnaYYjCSKvl2gJxpDalK1Rm4Q99GGGuhF4lWaTboc">
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 flex-1 max-w-[1440px] p-margin-desktop w-full mx-auto">
+<!-- Header -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Dataset Ingestion</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Configure and map your event logs for process mining analysis.</p>
+</div>
+<!-- Multi-step Wizard Header -->
+<div class="mb-stack-lg flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[1px] bg-glass-stroke z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-glass-stroke flex items-center justify-center text-success-emerald shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+<span class="material-symbols-outlined">check</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Upload</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-accent-indigo text-white flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.4)] ring-4 ring-background">
+<span class="font-mono-data text-mono-data font-bold">2</span>
+</div>
+<span class="font-label-md text-label-md text-primary uppercase font-bold">Map Columns</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-glass-stroke flex items-center justify-center text-on-surface-variant">
+<span class="font-mono-data text-mono-data font-bold">3</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Quality Score</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-glass-stroke flex items-center justify-center text-on-surface-variant">
+<span class="font-mono-data text-mono-data font-bold">4</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Finalize</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Left Column: Mapping Interface (Takes up 2 cols) -->
+<div class="xl:col-span-2 flex flex-col gap-gutter">
+<!-- Mapping Card -->
+<div class="bg-bg-slate-800 rounded-2xl border border-glass-stroke p-stack-lg relative overflow-hidden group">
+<!-- Subtle glow effect -->
+<div class="absolute inset-0 bg-accent-indigo/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="flex items-center justify-between mb-stack-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-indigo">schema</span>
+                            Event Log Mapping
+                        </h3>
+<button class="font-label-md text-label-md text-accent-cyan hover:text-white transition-colors flex items-center gap-1 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+                            Auto-Map
+                        </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-stack-lg">Map your CSV columns to the required Process Mining attributes (Case ID, Activity, Timestamp).</p>
+<!-- Mapping Rows -->
+<div class="flex flex-col gap-4">
+<!-- Row 1 -->
+<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-4 rounded-xl bg-surface-container/50 border border-glass-stroke hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Required Attribute</label>
+<div class="font-mono-data text-mono-data text-on-surface flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-accent-indigo"></div>
+                                    Case ID
+                                </div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Source Column</label>
+<select class="w-full bg-bg-slate-900 border border-glass-stroke rounded-lg px-3 py-2 font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-accent-cyan focus:border-accent-cyan outline-none transition-all appearance-none">
+<option>Order_Number</option>
+<option>Customer_ID</option>
+<option>SKU</option>
+</select>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-4 rounded-xl bg-surface-container/50 border border-glass-stroke hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Required Attribute</label>
+<div class="font-mono-data text-mono-data text-on-surface flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-accent-cyan"></div>
+                                    Activity
+                                </div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Source Column</label>
+<select class="w-full bg-bg-slate-900 border border-glass-stroke rounded-lg px-3 py-2 font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-accent-cyan focus:border-accent-cyan outline-none transition-all appearance-none">
+<option>Status_Update</option>
+<option>Action_Name</option>
+</select>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-4 rounded-xl bg-surface-container/50 border border-glass-stroke hover:border-primary/50 transition-colors">
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Required Attribute</label>
+<div class="font-mono-data text-mono-data text-on-surface flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                                    Timestamp
+                                </div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">arrow_forward</span>
+<div class="flex flex-col">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Source Column</label>
+<select class="w-full bg-bg-slate-900 border border-glass-stroke rounded-lg px-3 py-2 font-mono-data text-mono-data text-on-surface focus:ring-1 focus:ring-accent-cyan focus:border-accent-cyan outline-none transition-all appearance-none">
+<option>Event_Time</option>
+<option>Created_At</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Table -->
+<div class="bg-bg-slate-800 rounded-2xl border border-glass-stroke overflow-hidden flex flex-col h-[400px]">
+<div class="p-stack-md border-b border-glass-stroke flex items-center justify-between bg-surface-container/30">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">table_view</span>
+                            Data Preview
+                        </h3>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-xs bg-surface-bright px-2 py-1 rounded">Showing top 5 rows</span>
+</div>
+<div class="overflow-auto flex-1 p-4">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr>
+<th class="font-label-md text-label-md text-on-surface-variant uppercase pb-3 border-b border-glass-stroke pl-2 font-semibold">Order_Number</th>
+<th class="font-label-md text-label-md text-on-surface-variant uppercase pb-3 border-b border-glass-stroke px-4 font-semibold">Status_Update</th>
+<th class="font-label-md text-label-md text-on-surface-variant uppercase pb-3 border-b border-glass-stroke px-4 font-semibold">Event_Time</th>
+<th class="font-label-md text-label-md text-on-surface-variant uppercase pb-3 border-b border-glass-stroke px-4 font-semibold">Resource</th>
+<th class="font-label-md text-label-md text-on-surface-variant uppercase pb-3 border-b border-glass-stroke px-4 font-semibold">Cost</th>
+</tr>
+</thead>
+<tbody class="font-mono-data text-mono-data text-on-surface">
+<tr class="hover:bg-surface-variant/30 transition-colors border-b border-glass-stroke/50">
+<td class="py-3 pl-2">ORD-8923</td>
+<td class="py-3 px-4"><span class="bg-surface-container px-2 py-1 rounded text-xs text-primary">PO Created</span></td>
+<td class="py-3 px-4 text-on-surface-variant">2023-10-24 08:12:00</td>
+<td class="py-3 px-4">System</td>
+<td class="py-3 px-4">$1,200</td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors border-b border-glass-stroke/50">
+<td class="py-3 pl-2">ORD-8923</td>
+<td class="py-3 px-4"><span class="bg-surface-container px-2 py-1 rounded text-xs text-secondary">Approved</span></td>
+<td class="py-3 px-4 text-on-surface-variant">2023-10-24 09:45:12</td>
+<td class="py-3 px-4">J. Smith</td>
+<td class="py-3 px-4">-</td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors border-b border-glass-stroke/50">
+<td class="py-3 pl-2">ORD-8924</td>
+<td class="py-3 px-4"><span class="bg-surface-container px-2 py-1 rounded text-xs text-primary">PO Created</span></td>
+<td class="py-3 px-4 text-on-surface-variant">2023-10-24 10:05:00</td>
+<td class="py-3 px-4">System</td>
+<td class="py-3 px-4">$850</td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors border-b border-glass-stroke/50">
+<td class="py-3 pl-2">ORD-8923</td>
+<td class="py-3 px-4"><span class="bg-surface-container px-2 py-1 rounded text-xs text-tertiary">Shipped</span></td>
+<td class="py-3 px-4 text-on-surface-variant">2023-10-25 14:20:00</td>
+<td class="py-3 px-4">Warehouse A</td>
+<td class="py-3 px-4">-</td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors border-b border-glass-stroke/50">
+<td class="py-3 pl-2">ORD-8925</td>
+<td class="py-3 px-4"><span class="bg-surface-container px-2 py-1 rounded text-xs text-error">Rejected</span></td>
+<td class="py-3 px-4 text-on-surface-variant">2023-10-25 15:10:00</td>
+<td class="py-3 px-4">System</td>
+<td class="py-3 px-4">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column: Quality Score & Actions -->
+<div class="flex flex-col gap-gutter">
+<!-- Quality Score Card -->
+<div class="bg-bg-slate-800 rounded-2xl border border-glass-stroke p-stack-lg relative overflow-hidden">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-cyan">high_quality</span>
+                        Data Quality
+                    </h3>
+<!-- Circular Progress (Fake) -->
+<div class="flex justify-center my-stack-lg relative">
+<svg class="w-32 h-32 transform -rotate-90">
+<circle cx="64" cy="64" fill="none" r="56" stroke="rgba(255,255,255,0.05)" stroke-width="12"></circle>
+<circle class="drop-shadow-[0_0_8px_rgba(6,182,212,0.5)] transition-all duration-1000 ease-out" cx="64" cy="64" fill="none" r="56" stroke="theme('colors.accent-cyan')" stroke-dasharray="351.8" stroke-dashoffset="42" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-display-lg font-bold text-on-surface">88<span class="text-2xl text-on-surface-variant">%</span></span>
+</div>
+</div>
+<p class="text-center font-body-sm text-body-sm text-on-surface-variant mb-stack-lg">Overall quality score based on required mappings and data completeness.</p>
+<!-- Metrics List -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container/30 border border-glass-stroke/50">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-success-emerald"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completeness</span>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface">99.8%</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-error-container/20 border border-error/20">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-critical-crimson animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Missing Values</span>
+</div>
+<span class="font-mono-data text-mono-data text-critical-crimson">120 rows</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container/30 border border-glass-stroke/50">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-accent-indigo"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Duplicates</span>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface">14</span>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="bg-surface-container/50 rounded-2xl border border-glass-stroke p-stack-md flex items-start gap-4">
+<span class="material-symbols-outlined text-accent-cyan mt-1">info</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface mb-1">Mapping Tips</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ensure your timestamp format is consistent (e.g., YYYY-MM-DD HH:MM:SS) to prevent parsing errors during analysis.</p>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-auto pt-stack-md flex gap-4">
+<button class="flex-1 px-4 py-3 rounded-xl border border-glass-stroke text-on-surface font-body-md font-medium hover:bg-surface-variant/50 transition-colors">
+                        Back
+                    </button>
+<button class="flex-1 px-4 py-3 rounded-xl bg-accent-indigo text-white font-body-md font-medium hover:bg-accent-indigo/90 transition-all shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] flex items-center justify-center gap-2">
+                        Next Step
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (from JSON) -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-260px)] bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-glass-stroke flex justify-between items-center px-margin-desktop h-10 z-40">
+<p class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant">© 2024 FlowMind AI. Analysis Engine v2.4</p>
+<div class="flex gap-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</body></html>

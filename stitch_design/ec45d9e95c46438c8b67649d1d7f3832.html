@@ -1,0 +1,405 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FlowMind - Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#c7c4d7",
+                        "on-tertiary": "#003824",
+                        "on-secondary-fixed": "#001f26",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#171f33",
+                        "primary-container": "#8083ff",
+                        "surface-container-lowest": "#060e20",
+                        "accent-cyan": "#06B6D4",
+                        "surface": "#0b1326",
+                        "bg-slate-900": "#0F172A",
+                        "outline": "#908fa0",
+                        "bg-slate-800": "#1E293B",
+                        "surface-variant": "#2d3449",
+                        "glass-stroke": "rgba(255, 255, 255, 0.08)",
+                        "secondary-fixed": "#acedff",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#00424e",
+                        "critical-crimson": "#EF4444",
+                        "on-surface": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "tertiary-fixed": "#6ffbbe",
+                        "inverse-surface": "#dae2fd",
+                        "on-secondary": "#003640",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "background": "#0b1326",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-on-surface": "#283044",
+                        "primary-fixed": "#e1e0ff",
+                        "on-primary-fixed": "#07006c",
+                        "inverse-primary": "#494bd6",
+                        "secondary": "#4cd7f6",
+                        "surface-container-low": "#131b2e",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-primary": "#1000a9",
+                        "surface-tint": "#c0c1ff",
+                        "success-emerald": "#10B981",
+                        "on-tertiary-fixed": "#002113",
+                        "error": "#ffb4ab",
+                        "on-background": "#dae2fd",
+                        "accent-indigo": "#6366F1",
+                        "tertiary-container": "#00885d",
+                        "secondary-container": "#03b5d3",
+                        "on-primary-container": "#0d0096",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#31394d",
+                        "outline-variant": "#464554",
+                        "primary": "#c0c1ff",
+                        "on-tertiary-container": "#000703",
+                        "tertiary": "#4edea3",
+                        "surface-container-high": "#222a3d",
+                        "on-secondary-fixed-variant": "#004e5c"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "sidebar-width": "260px",
+                        "margin-desktop": "40px",
+                        "container-max": "1440px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Outfit", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-lg": ["Outfit", "sans-serif"],
+                        "mono-data": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Outfit", "sans-serif"],
+                        "headline-sm": ["Outfit", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(16px); border: 1px solid theme('colors.glass-stroke'); }
+        .glass-card { background: theme('colors.bg-slate-800'); border: 1px solid theme('colors.glass-stroke'); }
+        .glow-hover:hover { box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.4); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: theme('colors.surface-variant'); border-radius: theme('borderRadius.full'); }
+        ::-webkit-scrollbar-thumb:hover { background: theme('colors.outline'); }
+    </style>
+</head>
+<body class="antialiased min-h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="fixed h-full w-[260px] left-0 top-0 bg-surface-container border-r border-glass-stroke shadow-sm flex flex-col h-full py-stack-md z-50">
+<div class="px-gutter mb-stack-lg flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-indigo to-accent-cyan flex items-center justify-center text-white font-bold">
+<span class="material-symbols-outlined text-lg">scatter_plot</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">FlowMind</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Process Intelligence</p>
+</div>
+</div>
+<div class="px-gutter mb-stack-lg">
+<button class="w-full bg-accent-indigo hover:bg-accent-indigo/90 text-white rounded-lg py-2 font-body-sm text-body-sm font-medium transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">upload</span>
+                Upload Dataset
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-gutter flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-variant/50 text-primary font-bold border-r-2 border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<span class="font-body-md text-body-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">account_tree</span>
+<span class="font-body-md text-body-md">Process Map</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+<span class="font-body-md text-body-md">Metrics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">alt_route</span>
+<span class="font-body-md text-body-md">Variants</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">troubleshoot</span>
+<span class="font-body-md text-body-md">Findings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">hub</span>
+<span class="font-body-md text-body-md">Scenarios</span>
+</a>
+<div class="mt-4 pt-4 border-t border-glass-stroke">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-tertiary font-medium hover:bg-surface-variant/50 transition-colors bg-tertiary/10 border border-tertiary/20" href="#">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+<span class="font-body-md text-body-md">AI Analyst</span>
+</a>
+</div>
+</div>
+<div class="mt-auto px-gutter pt-stack-md border-t border-glass-stroke flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-medium hover:bg-surface-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span>
+<span class="font-body-sm text-body-sm">Help</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="ml-[260px] flex-1 flex flex-col h-screen relative">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] z-40 bg-surface/80 backdrop-blur-xl border-b border-glass-stroke flex justify-between items-center px-margin-desktop h-16">
+<div class="flex items-center gap-6">
+<h2 class="font-headline-md text-headline-md font-extrabold text-on-surface">Supply Chain Audit</h2>
+<nav class="hidden lg:flex items-center gap-4">
+<a class="text-primary border-b-2 border-primary pb-1 font-body-sm text-body-sm font-medium" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-sm text-body-sm font-medium" href="#">Inventory</a>
+<a class="text-on-surface-variant hover:text-primary transition-all font-body-sm text-body-sm font-medium" href="#">Logistics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-variant/50 border border-glass-stroke rounded-full py-1.5 pl-9 pr-4 text-sm text-on-surface focus:outline-none focus:border-accent-cyan transition-colors w-48 placeholder-on-surface-variant/50" placeholder="Search insights..." type="text">
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-critical-crimson rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">cloud_done</span>
+</button>
+<div class="flex items-center gap-3 ml-2 border-l border-glass-stroke pl-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors font-body-sm text-body-sm">Ready</button>
+<button class="bg-primary-container text-on-primary-container hover:bg-primary-container/90 px-3 py-1.5 rounded-lg font-body-sm text-body-sm font-medium transition-colors">Share</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-glass-stroke">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional corporate headshot of an executive in a high-tech environment. The lighting is dramatic and modern, fitting a dark-mode enterprise AI application interface. Subtle blue and purple ambient light illuminates the subject's face against a dark slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFaso7VZDOGB0EacD-sAu6R_nOHkFEKEeSnVFVxLF__ePSYWQow7K2FcCLIQ7z5Dhrkjdf-TGRND5EP62HcAdEpARri5DU3PcxIymlTYcoduasXLFTG36ByqeE3ZW9tk7VWIrmMyRYoFkrnyeVYPl1KQTn9K8kJhNKeAgG9C9pbFkIIHpnf1bsgTenAsm7L4ThgXZzx8nk_r2Dr3RkdqnhzPIGNNwwP2C2Gw2sQJ_-l8obX-bNSLDq">
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto pt-24 pb-20 px-margin-desktop">
+<div class="max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Real-time performance metrics and critical insights for Supply Chain Audit.</p>
+</div>
+<div class="flex gap-2">
+<span class="bg-surface-variant/50 border border-glass-stroke text-on-surface px-3 py-1 rounded-full font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_month</span> Last 30 Days
+                        </span>
+</div>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-stack-lg">
+<!-- KPI 1 -->
+<div class="glass-card rounded-2xl p-stack-md glow-hover transition-all relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-accent-indigo/10 rounded-full blur-xl group-hover:bg-accent-indigo/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Total Cases</span>
+<span class="material-symbols-outlined text-accent-indigo">folder_open</span>
+</div>
+<div class="relative z-10">
+<span class="font-headline-lg text-headline-lg text-on-surface">12,458</span>
+<div class="flex items-center gap-1 mt-2 text-success-emerald font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+4.2%</span>
+<span class="text-on-surface-variant opacity-50 ml-1">vs last period</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="glass-card rounded-2xl p-stack-md glow-hover transition-all relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-accent-cyan/10 rounded-full blur-xl group-hover:bg-accent-cyan/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Avg Cycle Time</span>
+<span class="material-symbols-outlined text-accent-cyan">timer</span>
+</div>
+<div class="relative z-10">
+<span class="font-headline-lg text-headline-lg text-on-surface">4.2 <span class="text-xl text-on-surface-variant">days</span></span>
+<div class="flex items-center gap-1 mt-2 text-success-emerald font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>-1.1 days</span>
+<span class="text-on-surface-variant opacity-50 ml-1">vs last period</span>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="glass-card rounded-2xl p-stack-md glow-hover transition-all relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/10 rounded-full blur-xl group-hover:bg-tertiary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">SLA Compliance</span>
+<span class="material-symbols-outlined text-tertiary">verified</span>
+</div>
+<div class="relative z-10">
+<span class="font-headline-lg text-headline-lg text-on-surface">92.8%</span>
+<div class="flex items-center gap-1 mt-2 text-critical-crimson font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>-2.4%</span>
+<span class="text-on-surface-variant opacity-50 ml-1">vs last period</span>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="glass-card rounded-2xl p-stack-md glow-hover transition-all relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-critical-crimson/10 rounded-full blur-xl group-hover:bg-critical-crimson/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Rework Rate</span>
+<span class="material-symbols-outlined text-critical-crimson">sync_problem</span>
+</div>
+<div class="relative z-10">
+<span class="font-headline-lg text-headline-lg text-on-surface">14.5%</span>
+<div class="flex items-center gap-1 mt-2 text-critical-crimson font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+1.2%</span>
+<span class="text-on-surface-variant opacity-50 ml-1">vs last period</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Top Findings Panel -->
+<div class="lg:col-span-1 glass-card rounded-2xl flex flex-col h-[500px]">
+<div class="p-stack-md border-b border-glass-stroke flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">troubleshoot</span>
+                                Top Findings
+                            </h3>
+<button class="text-primary text-sm hover:underline">View All</button>
+</div>
+<div class="p-stack-md flex-1 overflow-y-auto flex flex-col gap-4">
+<!-- Finding Item -->
+<div class="bg-surface-variant/30 border border-glass-stroke rounded-xl p-3 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-critical-crimson/20 text-critical-crimson border border-critical-crimson/30 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">Critical</span>
+<span class="text-on-surface-variant text-xs">2h ago</span>
+</div>
+<h4 class="font-body-md text-body-md text-on-surface font-medium mb-1">Bottleneck at 'Quality Check'</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 line-clamp-2">Average duration spiked to 48h, affecting 34% of cases. Immediate review recommended.</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">group</span>
+<span>Team Alpha</span>
+</div>
+</div>
+<!-- Finding Item -->
+<div class="bg-surface-variant/30 border border-glass-stroke rounded-xl p-3 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-accent-indigo/20 text-accent-indigo border border-accent-indigo/30 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">High</span>
+<span class="text-on-surface-variant text-xs">1d ago</span>
+</div>
+<h4 class="font-body-md text-body-md text-on-surface font-medium mb-1">Unusual Variant Path</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 line-clamp-2">150 cases skipped 'Initial Approval' and went straight to 'Fulfillment'.</p>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">alt_route</span>
+<span>Variant 4</span>
+</div>
+</div>
+<!-- Finding Item -->
+<div class="bg-surface-variant/30 border border-glass-stroke rounded-xl p-3 hover:bg-surface-variant/50 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-accent-cyan/20 text-accent-cyan border border-accent-cyan/30 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">Medium</span>
+<span class="text-on-surface-variant text-xs">2d ago</span>
+</div>
+<h4 class="font-body-md text-body-md text-on-surface font-medium mb-1">SLA Risk Detected</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2 line-clamp-2">Order #8892 approaching SLA breach for final delivery phase.</p>
+</div>
+</div>
+</div>
+<!-- Process Visual Summary -->
+<div class="lg:col-span-2 glass-card rounded-2xl flex flex-col h-[500px] relative overflow-hidden">
+<div class="p-stack-md border-b border-glass-stroke flex justify-between items-center z-10 bg-surface/50 backdrop-blur-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-indigo">account_tree</span>
+                                Process State Summary
+                            </h3>
+<div class="flex gap-2">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">zoom_in</span></button>
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-sm">filter_list</span></button>
+</div>
+</div>
+<div class="flex-1 relative w-full h-full bg-surface-container-lowest/50">
+<!-- Conceptual DFG Visualization Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center p-8 opacity-80 pointer-events-none">
+<svg height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 800 400" width="100%">
+<!-- Edges -->
+<path d="M 100 200 L 250 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"></path>
+<path d="M 250 200 L 400 120" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></path>
+<path d="M 250 200 L 400 280" fill="none" stroke="url(#bottleneck-grad)" stroke-width="8"></path>
+<path d="M 400 120 L 550 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"></path>
+<path d="M 400 280 L 550 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="6"></path>
+<path d="M 550 200 L 700 200" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"></path>
+<!-- Gradients -->
+<defs>
+<linearGradient id="bottleneck-grad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#EF4444" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#6366F1" stop-opacity="0.8"></stop>
+</linearGradient>
+</defs>
+<!-- Nodes -->
+<circle cx="100" cy="200" fill="#1E293B" r="24" stroke="#6366F1" stroke-width="2"></circle>
+<text fill="#c7c4d7" font-family="Inter" font-size="12" text-anchor="middle" x="100" y="240">Start</text>
+<circle cx="250" cy="200" fill="#1E293B" r="32" stroke="#6366F1" stroke-width="2"></circle>
+<text fill="#c7c4d7" font-family="Inter" font-size="12" text-anchor="middle" x="250" y="250">Receive</text>
+<circle cx="400" cy="120" fill="#1E293B" r="24" stroke="#6366F1" stroke-width="2"></circle>
+<text fill="#c7c4d7" font-family="Inter" font-size="12" text-anchor="middle" x="400" y="160">Auto Check</text>
+<circle cx="400" cy="280" fill="#1E293B" r="40" stroke="#EF4444" stroke-width="2"></circle>
+<text fill="#EF4444" font-family="Inter" font-size="12" font-weight="bold" text-anchor="middle" x="400" y="340">Manual Review (Bottleneck)</text>
+<circle cx="550" cy="200" fill="#1E293B" r="32" stroke="#6366F1" stroke-width="2"></circle>
+<text fill="#c7c4d7" font-family="Inter" font-size="12" text-anchor="middle" x="550" y="250">Approve</text>
+<circle cx="700" cy="200" fill="#1E293B" r="24" stroke="#6366F1" stroke-width="2"></circle>
+<text fill="#c7c4d7" font-family="Inter" font-size="12" text-anchor="middle" x="700" y="240">Complete</text>
+</svg>
+</div>
+<!-- Overlays -->
+<div class="absolute bottom-4 left-4 bg-surface/80 backdrop-blur-md border border-glass-stroke rounded-lg p-3">
+<div class="text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">Variant Coverage</div>
+<div class="flex items-end gap-2">
+<span class="font-headline-md text-headline-md text-on-surface">68%</span>
+<span class="text-xs text-on-surface-variant pb-1">Top 3 Variants</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-260px)] z-40 bg-surface-container-lowest border-t border-glass-stroke flex justify-between items-center px-margin-desktop h-10">
+<div class="font-label-md text-label-md text-on-surface-variant">© 2024 FlowMind AI. Analysis Engine v2.4</div>
+<div class="flex gap-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</div>
+</body></html>
