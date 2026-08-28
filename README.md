@@ -22,9 +22,7 @@
 ## 📌 Daftar Isi
 - [1. Latar Belakang & Masalah yang Dipecahkan](#1-latar-belakang--masalah-yang-dipecahkan)
 - [2. Arsitektur Hybrid Intelligence (Dual-Core Engine)](#2-arsitektur-hybrid-intelligence-dual-core-engine)
-  - [Mengapa LLM Murni Gagal di Analisis Proses?](#mengapa-llm-murni-gagal-di-analisis-proses)
-  - [Mengapa Dashboard Tradisional Tidak Cukup?](#mengapa-dashboard-tradisional-tidak-cukup)
-  - [Bagaimana FloMind_Elite Menyelesaikan Keduanya?](#bagaimana-flomind_elite-menyelesaikan-keduanya)
+  - [Keunggulan Pendekatan Hybrid Intelligence](#-keunggulan-pendekatan-hybrid-intelligence)
 - [3. Deep-Dive Pilar Mesin & Algoritma](#3-deep-dive-pilar-mesin--algoritma)
   - [Pilar 1: Universal Ingestion, Classifier & Memory Profile](#pilar-1-universal-ingestion-classifier--memory-profile)
   - [Pilar 2: Graph Discovery Engine (Directly-Follows Graph / DFG)](#pilar-2-graph-discovery-engine-directly-follows-graph--dfg)
@@ -92,22 +90,14 @@ Dalam operasional bisnis modern (perbankan, e-commerce, logistik, layanan pelang
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
----
+### 🚀 Keunggulan Pendekatan Hybrid Intelligence
 
-### Mengapa LLM Murni Gagal di Analisis Proses?
-1. **Halusinasi Angka & Biaya**: Model bahasa besar (LLM) seperti GPT-4 atau Claude jika diberi ribuan baris CSV mentah akan sering menebak persentil P90, mengarang total waktu tunggu, atau menciptakan estimasi biaya yang tidak pernah ada di data.
-2. **Keterbatasan Token Window**: Mengirim jutaan baris event log ke prompt LLM sangat lambat, mahal, dan melanggar batas token.
-3. **Klaim Kausalitas Palsu**: LLM murni cenderung membuat kesimpulan absolut seperti *"Aktivitas X pasti menyebabkan keterlambatan Y"* padahal log data hanya mencatat korelasi waktu.
+Pendekatan **Hybrid Dual-Core** pada FloMind_Elite memberikan keunggulan langsung bagi tim operasional:
 
-### Mengapa Dashboard Tradisional Tidak Cukup?
-1. **Kuburan Data (*Data Graveyard*)**: Dashboard konvensional hanya menyajikan diagram batang dan kurva mati. Pengguna tetap harus menebak sendiri mengapa grafik tersebut naik atau turun.
-2. **Tidak Ada Panduan Aksi**: Pengguna tidak diberi tahu *"Lalu apa yang harus saya lakukan hari ini untuk memperbaiki bottleneck tersebut?"*.
-
-### Bagaimana FloMind_Elite Menyelesaikan Keduanya?
-- **Core 1 (Engine Data)** menghitung seluruh matematika secara eksak di server backend.
-- **Middleware Guard** mengemas hasil kalkulasi menjadi paket bukti terverifikasi (`EV-001`, `EV-002`, ...).
-- **Core 2 (Pio_AI / Gemini)** membaca paket bukti tersebut, bernalar mengenai makna operasionalnya, dan memberikan rekomendasi praktis.
-- **Validator** menjamin bahwa AI tidak pernah mengarang angka baru—jika ada klaim di luar bukti data, statusnya otomatis diturunkan menjadi **"Hipotesis (Belum Terbukti)"**.
+1. **100% Anti-Halusinasi (Grounded AI)**: Seluruh metrik durasi, persentil siklus (P50/P90), dan frekuensi dihitung secara matematis oleh engine Python backend—bukan ditebak oleh LLM.
+2. **Efisiensi Token & Respon Instan**: Sistem tidak membuang token untuk mengirim seluruh baris log mentah, melainkan hanya paket bukti terikat (*Evidence Bundle*) yang relevan dengan pertanyaan.
+3. **Wawasan Operasional Praktis**: Menghubungkan titik-titik data pasif menjadi narasi bisnis yang dapat ditindaklanjuti (*Actionable Recommendations*).
+4. **Validasi & Demotion Guard**: Setiap klaim tanpa dukungan bukti data langsung secara otomatis ditandai sebagai hipotesis terbuka, menjaga integritas keputusan manajemen.
 
 ---
 
