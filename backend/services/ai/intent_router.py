@@ -29,7 +29,9 @@ class IntentRouter:
             "waktu", "siklus", "varian", "variant", "rework", "jalur", "finding",
             "kasus", "transisi", "aktivitas", "mengapa", "kenapa", "bagaimana", "rekomendasi"
         ])
-        if any(q == g or q.startswith(g + " ") or q.endswith(" " + g) for g in greetings) and not is_process_query:
+        q_clean = re.sub(r"[^\w\s]", "", q).strip()
+        if (any(q_clean == g or q_clean.startswith(g + " ") or q_clean.endswith(" " + g) for g in greetings)
+            or any(q == g or q.startswith(g + " ") or q.endswith(" " + g) for g in greetings)) and not is_process_query:
             return {
                 "intent": "CONVERSATION",
                 "required_data": [],
