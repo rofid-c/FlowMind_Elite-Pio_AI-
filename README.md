@@ -7,12 +7,12 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
-[![Gemini](https://img.shields.io/badge/Gemini_2.0_Flash-LLM-8E75FF?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
+[![Gemini](https://img.shields.io/badge/Gemini_3.5_Flash-LLM-8E75FF?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev)
 [![Architecture](https://img.shields.io/badge/Architecture-Dual--Core_Hybrid_AI-FF6B6B?style=for-the-badge)](#2-arsitektur-hybrid-intelligence-dual-core-engine)
 [![Tests](https://img.shields.io/badge/Pytest-100%25_Passing-10B981?style=for-the-badge&logo=pytest&logoColor=white)](#7-pengujian-otomatis-test-suites)
 
 <p align="center">
-  Platform <b>Enterprise Process Mining & Evidence-Grounded Hybrid Intelligence</b> generasi baru yang merekonstruksi event logs menjadi graf alur proses interaktif (DFG), mendeteksi anomali & bottleneck (P50/P90), menjalankan simulasi digital twin <i>What-If</i> matematis, dan menyediakan asisten konsultan diagnostik <b>Pio_AI</b> (Google Gemini) yang 100% berpijak pada bukti empiris tanpa risiko halusinasi.
+  Platform <b>Enterprise Process Mining & Evidence-Grounded Hybrid Intelligence</b> generasi baru yang merekonstruksi event logs menjadi graf alur proses interaktif (DFG), mendeteksi anomali & bottleneck (P50/P90), menjalankan simulasi digital twin <i>What-If</i> matematis, dan menyediakan asisten konsultan diagnostik <b>Pio_AI</b> (Google Gemini 3.5) yang 100% berpijak pada bukti empiris tanpa risiko halusinasi.
 </p>
 
 ---
@@ -81,7 +81,7 @@ Dalam operasional bisnis modern (perbankan, e-commerce, logistik, layanan pelang
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
 │                 CORE 2: COGNITIVE GENERATIVE AI ENGINE                 │
-│             (Google Gemini 2.0 Flash via REST API & agy CLI)           │
+│             (Google Gemini 3.5 Flash via REST API & agy CLI)           │
 │                                                                        │
 │  • Pemahaman Konteks Bisnis & Dekonstruksi Akar Masalah (Root Cause)   │
 │  • Perumusan Hipotesis Operasional di Balik Anomali Data               │
@@ -179,7 +179,7 @@ Memungkinkan pengambil keputusan menguji intervensi proses sebelum diterapkan di
 * **Structured Retrieval Architecture (Deterministic / Graph-Augmented RAG)**:
   - Berbeda dari chatbot dokumen umum yang mengandalkan *Vector Embedding* (pencarian kemiripan kosinus yang rentan membiaskan angka dan hubungan waktu), FloMind_Elite menerapkan **Structured Metric & Graph Retrieval**.
   - Mengambil irisan data secara langsung dari matriks graf DFG dan kalkulasi statistik non-parametrik ($P_{50}/P_{90}$, SLA, Rework, Bottleneck) berdasarkan klasifikasi *intent* pengguna.
-  - Mengeliminasi beban komputasi *vector embedding* pada ribuan baris event log, sekaligus menjamin angka yang dianalisis oleh Gemini **100% presisi matematis dan anti-halusinasi**.
+  - Mengeliminasi beban komputasi *vector embedding* pada ribuan baris event log, sekaligus menjamin angka yang dianalisis oleh Gemini 3.5 **100% presisi matematis dan anti-halusinasi**.
 * **Intent Classifier Multi-Domain**:
   - `CONVERSATION`: Merespons sapaan/obrolan santai tanpa membuang data metrik proses palsu.
   - `DIAGNOSIS`: Menjawab pertanyaan *"Mengapa proses lambat?"*, mendeteksi akar masalah.
@@ -195,7 +195,7 @@ Memungkinkan pengambil keputusan menguji intervensi proses sebelum diterapkan di
   - Klaim tanpa ID bukti langsung otomatis diberi prefix `[Hipotesis]`.
   - Kata kausal absolut (*"pasti menyebabkan"*, *"menjamin penurunan"*) otomatis diubah menjadi bahasa konservatif (*"berkorelasi kuat dengan"*, *"berpotensi menurunkan"*).
 * **Dual-Mode Connectivity**:
-  - Mode 1: **Google Gemini 2.0 Flash REST API** (Instan jika ada `GEMINI_API_KEY`).
+  - Mode 1: **Google Gemini 3.5 Flash REST API** (Instan jika ada `GEMINI_API_KEY`).
   - Mode 2: **Google Antigravity CLI Adapter (`agy.EXE`)** (Menggunakan otentikasi sesi agy lokal otomatis).
   - Mode 3: **Deterministic Fallback Engine** (Penalaran cerdas offline jika koneksi internet terputus).
 
@@ -212,7 +212,7 @@ sequenceDiagram
     participant DB as SQLite / PostgreSQL
     participant Engine as Discovery & Analytics Engine
     participant Guard as Context Planner & Validator
-    participant AI as Pio_AI (Gemini 2.0 / agy)
+    participant AI as Pio_AI (Gemini 3.5 / agy)
 
     User->>UI: 1. Upload Event Log (CSV/XLSX)
     UI->>API: POST /api/v1/datasets/inspect
@@ -460,7 +460,7 @@ Berikut adalah dokumentasi tangkapan layar antarmuka sistem yang diuji menggunak
 | **5** | **Varian Alur Proses (Variants Explorer)** | <img src="docs/screenshots/05_variants_explorer.png" width="480" alt="Variants Explorer" /> | **Eksplorasi Jalur Eksekusi & Anomali Alur**<br>• Pemetaan 12 varian unik alur komplain pelanggan dari 10.000 kasus.<br>• Varian #1 (Happy Path: 8 langkah standar) mencakup 2.663 kasus (26.63%) dengan median 15.1 jam.<br>• Varian Kompleks (#2 s/d #12) melibatkan *Specialist Investigation*, *Compliance Review*, *Quality Review*, dan *Customer Confirmation* dengan durasi hingga 30+ jam. |
 | **6** | **Temuan Deterministik & Deteksi Sinyal Anomali** | <img src="docs/screenshots/06_findings_signals.png" width="480" alt="Findings & Signals" /> | **Mesin Audit Proses Otomatis (*Deterministic Findings*)**<br>• Kartu temuan terstruktur dengan badge tingkat keparahan (`CRITICAL`, `HIGH`, `MEDIUM`).<br>• Setiap temuan memuat *Apa yang Diamati*, *Bukti Data Terikat*, *Mengapa Ditandai*, *Dugaan Penyebab*, dan *Rekomendasi Tindakan Terarah* tanpa halusinasi LLM. |
 | **7** | **Simulasi Skenario What-If & Estimasi Dampak Delta** | <img src="docs/screenshots/07_scenario_whatif.png" width="480" alt="What-If Scenario Simulation" /> | **Mesin Simulasi Digital Twin Proses**<br>• Pengujian skenario pemangkasan durasi (contoh: Optimasi waktu *Investigate -> Supervisor Approval* sebesar 30%).<br>• Komparasi berdampingan: Metrik Baseline vs Metrik Skenario Simulasi.<br>• Delta kalkulasi eksak: Pengurangan waktu siklus, penurunan % pelanggaran SLA, disertai daftar asumsi dan batasan data transparan. |
-| **8** | **Konsultasi Grounded AI Analyst (Pio_AI via Gemini CLI)** | <img src="docs/screenshots/08_pio_ai_analyst.png" width="480" alt="Pio AI Analyst" /> | **Asisten Konsultan Cerdas Berpijak Bukti Empiris (*Grounded Bento-Box*)**<br>• Didukung oleh Google Gemini CLI (`agy.EXE`) dengan autentikasi sesi lokal non-API key.<br>• Desain Bento Box: Fakta Terverifikasi (🟢 Hijau), Interpretasi Operasional (🔵 Biru), Dugaan Penyebab (🟠 Kuning), Rekomendasi Aksi Pill (🟣 Ungu), dan Batasan Data.<br>• *Smart Intent Routing*: Membedakan percakapan santai vs analisis diagnostik mendalam tanpa menumpahkan data berlebih. |
+| **8** | **Konsultasi Grounded AI Analyst (Pio_AI via Gemini 3.5 CLI)** | <img src="docs/screenshots/08_pio_ai_analyst.png" width="480" alt="Pio AI Analyst" /> | **Asisten Konsultan Cerdas Berpijak Bukti Empiris (*Grounded Bento-Box*)**<br>• Didukung oleh Google Gemini 3.5 CLI (`agy.EXE`) dengan autentikasi sesi lokal non-API key.<br>• Desain Bento Box: Fakta Terverifikasi (🟢 Hijau), Interpretasi Operasional (🔵 Biru), Dugaan Penyebab (🟠 Kuning), Rekomendasi Aksi Pill (🟣 Ungu), dan Batasan Data.<br>• *Smart Intent Routing*: Membedakan percakapan santai vs analisis diagnostik mendalam tanpa menumpahkan data berlebih. |
 
 ---
 
