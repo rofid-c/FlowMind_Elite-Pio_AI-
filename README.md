@@ -176,6 +176,10 @@ Memungkinkan pengambil keputusan menguji intervensi proses sebelum diterapkan di
 ---
 
 ### Pilar 5: Pio_AI — Grounded Generative AI Engine
+* **Structured Retrieval Architecture (Deterministic / Graph-Augmented RAG)**:
+  - Berbeda dari chatbot dokumen umum yang mengandalkan *Vector Embedding* (pencarian kemiripan kosinus yang rentan membiaskan angka dan hubungan waktu), FloMind_Elite menerapkan **Structured Metric & Graph Retrieval**.
+  - Mengambil irisan data secara langsung dari matriks graf DFG dan kalkulasi statistik non-parametrik ($P_{50}/P_{90}$, SLA, Rework, Bottleneck) berdasarkan klasifikasi *intent* pengguna.
+  - Mengeliminasi beban komputasi *vector embedding* pada ribuan baris event log, sekaligus menjamin angka yang dianalisis oleh Gemini **100% presisi matematis dan anti-halusinasi**.
 * **Intent Classifier Multi-Domain**:
   - `CONVERSATION`: Merespons sapaan/obrolan santai tanpa membuang data metrik proses palsu.
   - `DIAGNOSIS`: Menjawab pertanyaan *"Mengapa proses lambat?"*, mendeteksi akar masalah.
@@ -184,8 +188,9 @@ Memungkinkan pengambil keputusan menguji intervensi proses sebelum diterapkan di
   - `VARIANT_ANALYSIS`: Membandingkan jalur alur tercepat vs paling lambat.
   - `RECOMMENDATION`: Memberikan 3 prioritas perbaikan (*INVESTIGASI, EVALUASI, STANDARISASI*).
   - `SCENARIO`: Menganalisis implikasi bisnis dari hasil simulasi skenario What-If.
-* **Context Budgeting Protocol**:
-  Membatasi paket bukti maksimal 2–4 metrik kunci teratas dan 1 transisi bottleneck utama agar konteks prompt tetap tajam dan bebas noise.
+* **Context Budgeting & Evidence Binding Protocol**:
+  - Mengemas hasil retrieval menjadi token bukti terikat (`EV-001`, `EV-002`, ...).
+  - Membatasi paket bukti maksimal 2–4 metrik kunci teratas dan 1 transisi bottleneck utama agar konteks prompt tetap tajam, hemat token, dan bebas noise.
 * **Demotion Guard & Sanitasi Bahasa Kausal**:
   - Klaim tanpa ID bukti langsung otomatis diberi prefix `[Hipotesis]`.
   - Kata kausal absolut (*"pasti menyebabkan"*, *"menjamin penurunan"*) otomatis diubah menjadi bahasa konservatif (*"berkorelasi kuat dengan"*, *"berpotensi menurunkan"*).
